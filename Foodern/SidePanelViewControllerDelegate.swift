@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol SidePanelViewControllerDelegate {
+    func didSelectItem(_ item: SideMenuItem)
+}

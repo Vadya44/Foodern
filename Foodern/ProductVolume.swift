@@ -6,4 +6,7 @@
 //  Copyright © 2018 Вадим Гатауллин. All rights reserved.
 //
 
-import Foundation
+protocol ProductVolume {
+    func getTempVolume() -> Double
+    func getTempPercent() -> Double
+}

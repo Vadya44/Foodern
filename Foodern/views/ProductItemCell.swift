@@ -6,4 +6,10 @@
 //  Copyright © 2018 Вадим Гатауллин. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class ProductItemCell : UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+}
