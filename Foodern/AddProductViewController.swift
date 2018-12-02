@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import Realm
 
-class AddProductViewController: UIViewController, UIGestureRecognizerDelegate {
+class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -37,6 +37,10 @@ class AddProductViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.nameTextField.delegate = self
+        self.volumeTextField.delegate = self
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         
         self.notificationToken = results.observe { (changes: RealmCollectionChange) in
@@ -62,6 +66,14 @@ class AddProductViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    @IBAction func nameTFReturn(_ sender: Any) {
+        nameTextField.resignFirstResponder()
+        volumeTextField.becomeFirstResponder()
+    }
+    
+    @IBAction func volumeTFReturn(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
     
     @IBAction func doneButtonClicked(_ sender: Any) {
@@ -94,3 +106,4 @@ extension AddProductViewController : AddProductViewControllerDelegate {
         self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
     }
 }
+

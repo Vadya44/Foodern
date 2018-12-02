@@ -254,10 +254,9 @@
                                                 <action selector="cancelButtonClicked:" destination="Qrq-QE-F4O" id="umI-J0-ouv"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="QR Scan" id="Xa9-oA-Qiq">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Xa9-oA-Qiq">
                                             <connections>
                                                 <action selector="doneButtonClicked:" destination="Qrq-QE-F4O" id="EbL-X3-b0x"/>
-                                                <segue destination="gfb-Eh-F8J" kind="presentation" id="TPg-y3-xdq"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -283,6 +282,9 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <connections>
+                                                            <action selector="nameTFReturn:" destination="Qrq-QE-F4O" eventType="primaryActionTriggered" id="yBE-tL-enc"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -300,6 +302,9 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                        <connections>
+                                                            <action selector="volumeTFReturn:" destination="Qrq-QE-F4O" eventType="primaryActionTriggered" id="RaS-pG-s5M"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="RYe-Mu-6dJ">
                                                         <rect key="frame" x="266" y="0.0" width="99" height="30"/>
@@ -307,6 +312,7 @@
                                                         <state key="normal" title="гр / мл "/>
                                                         <connections>
                                                             <action selector="choosingButtonClicked:" destination="Qrq-QE-F4O" eventType="touchUpInside" id="5DC-HI-RQs"/>
+                                                            <action selector="volumeTFReturn:" destination="Qrq-QE-F4O" eventType="primaryActionTriggered" id="kVg-MS-JDh"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

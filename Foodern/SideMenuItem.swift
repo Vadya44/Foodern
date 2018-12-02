@@ -24,6 +24,7 @@ struct SideMenuItem {
         SideMenuItem(name: "Запланировать покупку", image: UIImage(named: "createNotify")),
         SideMenuItem(name: "Настройки", image : UIImage(named: "settings")),
         SideMenuItem(name: "О Программе", image : UIImage(named: "appInfo")),
-        SideMenuItem(name: "Оценить", image : UIImage(named: "rateMe"))]
+        SideMenuItem(name: "Оценить", image : UIImage(named: "rateMe")),
+        SideMenuItem(name: "Добавить из чека", image: UIImage(named: "check"))]
     }
 }
