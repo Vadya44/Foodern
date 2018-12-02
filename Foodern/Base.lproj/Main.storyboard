@@ -290,23 +290,23 @@
                                                 <rect key="frame" x="0.0" y="42.5" width="365" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вес/объем" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rog-HX-wtO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="173" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="csC-8B-8RL">
-                                                        <rect key="frame" x="193" y="0.0" width="80.5" height="30"/>
+                                                        <rect key="frame" x="174" y="0.0" width="72" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYe-Mu-6dJ">
-                                                        <rect key="frame" x="293.5" y="0.0" width="71.5" height="30"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="RYe-Mu-6dJ">
+                                                        <rect key="frame" x="266" y="0.0" width="99" height="30"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
-                                                        <state key="normal" title="гр."/>
+                                                        <state key="normal" title="гр / мл "/>
                                                         <connections>
-                                                            <action selector="buttonChoosingClicked:" destination="Qrq-QE-F4O" eventType="touchUpInside" id="8GQ-5p-Ah1"/>
+                                                            <action selector="choosingButtonClicked:" destination="Qrq-QE-F4O" eventType="touchUpInside" id="5DC-HI-RQs"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -387,7 +387,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="choosingButton" destination="RYe-Mu-6dJ" id="EDV-rt-tKC"/>
+                        <outlet property="choosingButton" destination="RYe-Mu-6dJ" id="nCe-Sg-tjv"/>
                         <outlet property="nameTextField" destination="e22-YB-rsZ" id="mzp-D4-CcK"/>
                         <outlet property="tableView" destination="FeS-s2-gl6" id="2lN-Lb-hvd"/>
                         <outlet property="volumeTextField" destination="csC-8B-8RL" id="PUj-Kt-Vzv"/>
@@ -396,6 +396,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dUC-5q-Qrj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1704.8" y="-573.46326836581716"/>
+        </scene>
+        <!--Variable Picker View Controller-->
+        <scene sceneID="TFw-cd-UBe">
+            <objects>
+                <viewController storyboardIdentifier="VariablePickerViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1fG-EQ-pvi" customClass="VariablePickerViewController" customModule="Foodern" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fDq-i0-Jou"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xt9-iR-urx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pbn-6u-pht">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="HmT-pL-v6c">
+                                <rect key="frame" x="27.5" y="225.5" width="320" height="216"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZV-RJ-JXg">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="1fG-EQ-pvi" id="BCb-Ay-5ox"/>
+                                            <outlet property="delegate" destination="1fG-EQ-pvi" id="gE4-Dn-dIA"/>
+                                        </connections>
+                                    </pickerView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="BZV-RJ-JXg" secondAttribute="trailing" id="ILZ-et-rh7"/>
+                                    <constraint firstAttribute="bottom" secondItem="BZV-RJ-JXg" secondAttribute="bottom" id="NUs-Is-uvJ"/>
+                                    <constraint firstItem="BZV-RJ-JXg" firstAttribute="leading" secondItem="HmT-pL-v6c" secondAttribute="leading" id="S9y-4e-lHd"/>
+                                    <constraint firstItem="BZV-RJ-JXg" firstAttribute="top" secondItem="HmT-pL-v6c" secondAttribute="top" id="oyg-WS-f9U"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="0.6271671660958904" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HmT-pL-v6c" firstAttribute="centerY" secondItem="pbn-6u-pht" secondAttribute="centerY" id="QBf-2K-WG8"/>
+                            <constraint firstItem="HmT-pL-v6c" firstAttribute="centerX" secondItem="pbn-6u-pht" secondAttribute="centerX" id="VN8-zc-Fco"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="modePicker" destination="BZV-RJ-JXg" id="r0A-VZ-b11"/>
+                        <outlet property="popUpVIew" destination="pbn-6u-pht" id="VpL-fd-6Qx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zgf-sv-QiB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1705" y="-1382"/>
         </scene>
         <!--Code Scanner View Controller-->
         <scene sceneID="Zf0-Jl-TcT">

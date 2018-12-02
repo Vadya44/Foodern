@@ -22,10 +22,12 @@
 		153083F221AC23DF000E0DD2 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153083F121AC23DF000E0DD2 /* AddProductViewController.swift */; };
 		1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */; };
 		1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */; };
+		156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */; };
 		15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D8F21AE37EF009B57A5 /* ProductItem.swift */; };
 		15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9121AE382D009B57A5 /* ProductVolume.swift */; };
 		15759D9421AEFB42009B57A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
 		15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */; };
+		15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */; };
 		87470AFB4F849468A1041AEF /* Pods_Foodern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD55A9DEE407CE3D834A101 /* Pods_Foodern.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,10 +59,12 @@
 		153083F121AC23DF000E0DD2 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
+		156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewControllerDelegate.swift; sourceTree = "<group>"; };
 		15759D8F21AE37EF009B57A5 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		15759D9121AE382D009B57A5 /* ProductVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVolume.swift; sourceTree = "<group>"; };
 		15759D9321AEFB42009B57A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCell.swift; sourceTree = "<group>"; };
+		15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablePickerViewController.swift; sourceTree = "<group>"; };
 		1CD55A9DEE407CE3D834A101 /* Pods_Foodern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A13708B777B4D3E9ED2EF4 /* Pods-Foodern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodern.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foodern/Pods-Foodern.debug.xcconfig"; sourceTree = "<group>"; };
 		D5F9580485DBE0389E25F460 /* Pods-Foodern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodern.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foodern/Pods-Foodern.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,13 +136,15 @@
 		15A9F0E321A99C30001E0503 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				152D510E21A70314002CBBD3 /* ContrainerViewController.swift */,
 				152D510821A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift */,
 				152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */,
 				152D510A21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift */,
 				152D510C21A702DF002CBBD3 /* SidePanelViewController.swift */,
-				152D510E21A70314002CBBD3 /* ContrainerViewController.swift */,
 				153083F121AC23DF000E0DD2 /* AddProductViewController.swift */,
+				156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */,
 				1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */,
+				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -311,8 +317,10 @@
 				153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */,
 				152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */,
 				153083F221AC23DF000E0DD2 /* AddProductViewController.swift in Sources */,
+				156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */,
 				152D511321A706F8002CBBD3 /* SideItemCell.swift in Sources */,
 				15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */,
+				15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */,
 				152D510F21A70314002CBBD3 /* ContrainerViewController.swift in Sources */,
 				152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */,
 				1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */,

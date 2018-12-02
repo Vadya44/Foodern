@@ -10,18 +10,31 @@ import UIKit
 import RealmSwift
 import Realm
 
-class AddProductViewController: UIViewController {
+class AddProductViewController: UIViewController, UIGestureRecognizerDelegate {
+    
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var choosingButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    let variablesForPick = ["гр.", "кг.", "мл.", "л.", "другое"]
+    var tempNumberOfVariable : Int = 0
+    
+    
+    @IBAction func choosingButtonClicked(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "VariablePickerViewController") as! VariablePickerViewController
+        newViewController.delegate = self
+        newViewController.currentRow = tempNumberOfVariable
+        self.present(newViewController, animated: true, completion: nil)
+        
+    }
     
     let results = try! Realm().objects(Category.self)
     var notificationToken: NotificationToken?
     
-    @IBAction func buttonChoosingClicked(_ sender: Any) {
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,8 +87,10 @@ extension AddProductViewController : UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension AddProductViewController { // for picker
 
-
-    
+extension AddProductViewController : AddProductViewControllerDelegate {
+    func newVariableValue(_ newValue: Int) {
+        self.tempNumberOfVariable = newValue
+        self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
+    }
 }
