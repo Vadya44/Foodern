@@ -225,6 +225,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="mealsSearchBar" destination="PI5-fp-Uiw" id="W4i-Ei-3jZ"/>
                         <outlet property="tableView" destination="qKN-Eq-wqZ" id="3cm-Sl-Lwl"/>
                     </connections>
                 </viewController>
@@ -514,9 +515,96 @@
             </objects>
             <point key="canvasLocation" x="2776.8000000000002" y="-573.46326836581716"/>
         </scene>
+        <!--Categories Picker View Controller-->
+        <scene sceneID="iCr-Cf-U2f">
+            <objects>
+                <viewController storyboardIdentifier="CategoriesPickerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2qd-re-mAf" customClass="CategoriesPickerViewController" customModule="Foodern" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RCC-uS-wiz"/>
+                        <viewControllerLayoutGuide type="bottom" id="g03-Z9-hsF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sjv-Cz-otg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="orC-qO-Zw5">
+                                <rect key="frame" x="46" y="120" width="283" height="447"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="me5-ZS-OFn">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="417"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoriesTableViewCell" id="OeZ-6c-jbo" customClass="CategoriesTableViewCell" customModule="Foodern" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="283" height="44"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OeZ-6c-jbo" id="fj7-Ea-oSq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkMark" translatesAutoresizingMaskIntoConstraints="NO" id="dA4-KY-kuv">
+                                                            <rect key="frame" x="15" y="12" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="20" id="FBR-DC-4wG"/>
+                                                                <constraint firstAttribute="width" constant="20" id="syq-iX-YHf"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tC-0c-Wnd">
+                                                            <rect key="frame" x="50" y="10" width="218" height="24"/>
+                                                            <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="8tC-0c-Wnd" firstAttribute="leading" secondItem="dA4-KY-kuv" secondAttribute="trailing" constant="15" id="ACE-A0-8Kh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8tC-0c-Wnd" secondAttribute="trailing" constant="15" id="QNC-fu-RGA"/>
+                                                        <constraint firstItem="8tC-0c-Wnd" firstAttribute="centerY" secondItem="fj7-Ea-oSq" secondAttribute="centerY" id="fmb-pL-UOn"/>
+                                                        <constraint firstItem="dA4-KY-kuv" firstAttribute="centerY" secondItem="fj7-Ea-oSq" secondAttribute="centerY" id="l6I-dH-64k"/>
+                                                        <constraint firstItem="dA4-KY-kuv" firstAttribute="leading" secondItem="fj7-Ea-oSq" secondAttribute="leading" constant="15" id="wG4-eO-iYn"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="categoryCheckMarkImage" destination="dA4-KY-kuv" id="vVT-dU-PHJ"/>
+                                                    <outlet property="categoryNameLabel" destination="8tC-0c-Wnd" id="h2A-gO-QtG"/>
+                                                    <outlet property="contnView" destination="fj7-Ea-oSq" id="Ord-7L-1gX"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2qd-re-mAf" id="746-rK-si5"/>
+                                            <outlet property="delegate" destination="2qd-re-mAf" id="I4u-Ko-RZu"/>
+                                        </connections>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y7j-V4-7Wg">
+                                        <rect key="frame" x="0.0" y="417" width="283" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="doneButtonClicked:" destination="2qd-re-mAf" eventType="touchUpInside" id="Su4-yU-lf0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.3324615926775214" alpha="0.63008347602739723" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="orC-qO-Zw5" secondAttribute="trailing" constant="30" id="1oV-B2-lpi"/>
+                            <constraint firstItem="g03-Z9-hsF" firstAttribute="top" secondItem="orC-qO-Zw5" secondAttribute="bottom" constant="100" id="ESR-85-8uv"/>
+                            <constraint firstItem="orC-qO-Zw5" firstAttribute="top" secondItem="RCC-uS-wiz" secondAttribute="bottom" constant="100" id="FFR-xp-JUn"/>
+                            <constraint firstItem="orC-qO-Zw5" firstAttribute="leading" secondItem="sjv-Cz-otg" secondAttribute="leadingMargin" constant="30" id="GKV-xL-PVd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="me5-ZS-OFn" id="Wvl-zP-8Gr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19m-ij-KPz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="746" y="-1382"/>
+        </scene>
     </scenes>
     <resources>
         <image name="category" width="75" height="75"/>
+        <image name="checkMark" width="75" height="75"/>
         <image name="slideMenu" width="30" height="30"/>
     </resources>
 </document>

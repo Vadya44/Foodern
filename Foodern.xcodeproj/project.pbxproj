@@ -23,6 +23,8 @@
 		1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */; };
 		1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */; };
 		156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */; };
+		156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */; };
+		156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */; };
 		15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D8F21AE37EF009B57A5 /* ProductItem.swift */; };
 		15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9121AE382D009B57A5 /* ProductVolume.swift */; };
 		15759D9421AEFB42009B57A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
@@ -60,6 +62,8 @@
 		1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewControllerDelegate.swift; sourceTree = "<group>"; };
+		156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPickerViewController.swift; sourceTree = "<group>"; };
+		156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		15759D8F21AE37EF009B57A5 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		15759D9121AE382D009B57A5 /* ProductVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVolume.swift; sourceTree = "<group>"; };
 		15759D9321AEFB42009B57A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */,
 				1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */,
 				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
+				156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 				152D511221A706F8002CBBD3 /* SideItemCell.swift */,
 				15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */,
 				153083EF21AC1809000E0DD2 /* ChoosingCategoryCell.swift */,
+				156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */,
 				1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */,
 			);
 			path = views;
@@ -321,8 +327,10 @@
 				152D511321A706F8002CBBD3 /* SideItemCell.swift in Sources */,
 				15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */,
 				15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */,
+				156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */,
 				152D510F21A70314002CBBD3 /* ContrainerViewController.swift in Sources */,
 				152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */,
+				156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */,
 				1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */,
 				152D511121A703E1002CBBD3 /* SideMenuItem.swift in Sources */,
 				152D510D21A702DF002CBBD3 /* SidePanelViewController.swift in Sources */,

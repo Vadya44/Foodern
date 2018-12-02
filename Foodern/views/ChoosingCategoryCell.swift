@@ -13,13 +13,4 @@ class ChoosingCategoryCell : UITableViewCell {
 
     @IBOutlet weak var cellStackView: UIView!
     
-    func makeRecognizer() {
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(ChoosingCategoryCell.tapDetected))
-        cellStackView.isUserInteractionEnabled = true
-        cellStackView.addGestureRecognizer(singleTap)
-    }
-    
-    @objc func tapDetected() {
-        print("Imageview Clicked")
-    }
 }

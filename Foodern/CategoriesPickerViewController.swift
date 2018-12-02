@@ -1,30 +1,24 @@
 //
-//  ViewController.swift
+//  CategoriesPickerViewController.swift
 //  Foodern
 //
-//  Created by Вадим Гатауллин on 22/11/2018.
+//  Created by Вадим Гатауллин on 02/12/2018.
 //  Copyright © 2018 Вадим Гатауллин. All rights reserved.
 //
 
 import UIKit
-
+import Realm
 import RealmSwift
 
-class FoodTableViewController: UIViewController {
+class CategoriesPickerViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mealsSearchBar: UISearchBar!
     
-    
-    let realm = try! Realm()
-    let results = try! Realm().objects(ProductItem.self).sorted(byKeyPath : "name")
+    let results = try! Realm().objects(Category.self)
     var notificationToken: NotificationToken?
-    
-    var delegate : FoodTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.mealsSearchBar.delegate = self
+
         
         self.notificationToken = results.observe { (changes: RealmCollectionChange) in
             switch changes {
@@ -46,18 +40,33 @@ class FoodTableViewController: UIViewController {
                 break
             }
         }
-    }
-
-    @IBAction func SlideBarTapped(_ sender: Any) {
-        delegate?.toggleLeftPanel?()
+        // Do any additional setup after loading the view.
     }
     
+    @IBAction func doneButtonClicked(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
 }
 
-
-extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
+extension CategoriesPickerViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 + results.count
+        return results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell", for: indexPath) as! CategoriesTableViewCell
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -66,33 +75,5 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
             self.present(newViewController, animated: true, completion: nil)
         }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (indexPath.row == 0)
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ChoosingCategoryCell", for: indexPath) as! ChoosingCategoryCell
-            return cell
-        } else
-        {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProductItemCell", for: indexPath) as! ProductItemCell
-            cell.nameLabel.text = results[indexPath.row - 1].name
-            return cell
-        }
-    }
-    
-    
-}
-
-extension FoodTableViewController : SidePanelViewControllerDelegate {
-    func didSelectItem(_ item : SideMenuItem) {
-        print(item.name)
-        delegate?.collapseSidePanels?()
-    }
-}
-
-extension FoodTableViewController : UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
-        searchBar.resignFirstResponder()
     }
 }
