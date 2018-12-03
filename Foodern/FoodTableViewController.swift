@@ -19,10 +19,15 @@ class FoodTableViewController: UIViewController {
     let results = try! Realm().objects(ProductItem.self).sorted(byKeyPath : "name")
     var notificationToken: NotificationToken?
     
+    var pickedCategories : [Bool] = []
+    
     var delegate : FoodTableViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for _ in 0...self.results.count {
+            pickedCategories.append(false)
+        }
         
         self.mealsSearchBar.delegate = self
         
@@ -34,6 +39,10 @@ class FoodTableViewController: UIViewController {
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the TableView
+                self.pickedCategories.removeAll()
+                for _ in 0...self.results.count {
+                    self.pickedCategories.append(false)
+                }
                 self.tableView.beginUpdates()
                 self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
                 self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
@@ -64,6 +73,7 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
+            newViewController.initPicked(arr: pickedCategories, delegateTV: self)
             self.present(newViewController, animated: true, completion: nil)
         }
     }
@@ -94,5 +104,10 @@ extension FoodTableViewController : SidePanelViewControllerDelegate {
 extension FoodTableViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
         searchBar.resignFirstResponder()
+    }
+}
+extension FoodTableViewController : CategoriesPickerDelegate{
+    func reloadPicked(_ array : [Bool]) {
+        self.pickedCategories = array
     }
 }

@@ -14,11 +14,27 @@ class CategoriesPickerViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let results = try! Realm().objects(Category.self)
+    var picked : [Bool] = []
     var notificationToken: NotificationToken?
+    var delegate : CategoriesPickerDelegate?
+    
+    func initPicked(arr : [Bool], delegateTV : CategoriesPickerDelegate) {
+        self.picked = arr
+        self.delegate = delegateTV
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tableView.layer.cornerRadius = 5
+        tableView.layer.masksToBounds = true
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = #colorLiteral(red: 0.8039215686, green: 0.9333333333, blue: 0.9725490196, alpha: 1)
+        tableView.clipsToBounds = true
+        
+        for _ in 0...self.results.count {
+            picked.append(false)
+        }
         
         self.notificationToken = results.observe { (changes: RealmCollectionChange) in
             switch changes {
@@ -28,6 +44,10 @@ class CategoriesPickerViewController: UIViewController {
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the TableView
+                self.picked.removeAll()
+                for _ in 0...self.results.count {
+                    self.picked.append(false)
+                }
                 self.tableView.beginUpdates()
                 self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
                 self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
@@ -44,6 +64,7 @@ class CategoriesPickerViewController: UIViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        delegate?.reloadPicked(picked)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -66,14 +87,22 @@ extension CategoriesPickerViewController : UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell", for: indexPath) as! CategoriesTableViewCell
+        cell.categoryNameLabel.text = results[indexPath.row].stringName
+        if (picked[indexPath.row]) {
+            cell.pick()
+        }
+        else {
+            cell.unPick()
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
-            self.present(newViewController, animated: true, completion: nil)
-        }
+        picked[indexPath.row] = !picked[indexPath.row]
+        tableView.reloadData()
     }
+}
+
+protocol CategoriesPickerDelegate {
+    func reloadPicked(_ array : [Bool])
 }

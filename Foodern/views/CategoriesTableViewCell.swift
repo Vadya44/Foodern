@@ -18,6 +18,14 @@ class CategoriesTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    func pick() {
+        self.categoryCheckMarkImage.isHidden = false
+    }
+    
+    func unPick() {
+        self.categoryCheckMarkImage.isHidden = true
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
