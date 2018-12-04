@@ -198,15 +198,21 @@ private extension UIStoryboard {
 private extension ContainerViewController {
     private static func createCategories() {
         let realm = try! Realm()
-        if (try! Realm().objects(Category.self).count == 0) {
+        try! realm.write {
+            realm.delete(realm.objects(Category.self))
+        }
+        
+        if (realm.objects(Category.self).count == 0) {
             let fridge = Category()
             fridge.stringName = "Холодильник"
-//            let freezer = Category(value: ["stringName" : "Морозильная камера"])
-//            let liquid = Category(value: ["stringName" : "Жидкость"])
+            let freezer = Category()
+            freezer.stringName = "Морозильная камера"
+            let liquid = Category()
+            liquid.stringName = "Жидкость"
             try! realm.write {
                 realm.add(fridge)
-//                realm.add(freezer)
-//                realm.add(liquid)
+                realm.add(freezer)
+                realm.add(liquid)
             }
         }
     }

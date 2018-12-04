@@ -11,7 +11,7 @@ import Realm
 
 class ProductItem : Object, ProductVolume {
     @objc dynamic var name : String
-    @objc dynamic var category : Category?
+    @objc dynamic var category : [Category]?
 
     @objc dynamic var tempCount : Int = 1
     @objc dynamic var fullCount : Int = 1
@@ -25,7 +25,7 @@ class ProductItem : Object, ProductVolume {
     
     @objc dynamic var tempPercent : Double = 1
     
-    init(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, category : Category?) {
+    init(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, category : [Category]?) {
         self.name = name
         self.tempPercent = tempCapacity!
         if (tempVol != nil) {

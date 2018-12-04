@@ -19,7 +19,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     var pickedCategories : [Bool] = []
     
-    let variablesForPick = ["гр.", "кг.", "мл.", "л.", "другое"]
+    let variablesForPick = ["гр.", "кг.", "мл.", "л.", "шт.", "другое"]
     var tempNumberOfVariable : Int = 0
     
     
@@ -33,6 +33,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     }
     
     let results = try! Realm().objects(Category.self)
+    let realm = try! Realm()
     
     
     override func viewDidLoad() {
@@ -59,6 +60,46 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        var isLiq = false
+        var isHaveW = false
+        var isCnt = false
+        
+        if (0...1  ~= tempNumberOfVariable) {
+            isLiq = true
+        } else if (2...3  ~= tempNumberOfVariable)
+        {
+            isHaveW = true
+        } else if (tempNumberOfVariable == 4)
+        {
+            isCnt = true
+        }
+        
+        var categoriesPicked : [Category] = []
+        let cnt = pickedCategories.count
+        
+        for i in 0...cnt {
+            if (pickedCategories[i]) {
+                categoriesPicked.append(results[i])
+            }
+        }
+        
+        let newProduct = ProductItem(name: nameTextField.text ?? "undefined",
+                                     tempVol: Double(volumeTextField.text ?? "1"),
+                                     fullVolume: Double(volumeTextField.text ?? "1"),
+                                     isLiquid: isLiq,
+                                     isHaveW: isHaveW,
+                                     tempCapacity: 1,
+                                     isCountable: isCnt,
+                                     tempC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
+                                     fullC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
+                                     category: categoriesPicked
+        )
+        
+        try! realm.write {
+            realm.add(newProduct)
+        }
+        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {

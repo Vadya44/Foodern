@@ -29,6 +29,7 @@ class FoodTableViewController: UIViewController {
             pickedCategories.append(false)
         }
         
+        
         self.mealsSearchBar.delegate = self
         
         self.notificationToken = results.observe { (changes: RealmCollectionChange) in
