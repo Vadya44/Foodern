@@ -106,7 +106,7 @@ extension FoodTableViewController : UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
-extension FoodTableViewController : CategoriesPickerDelegate{
+extension FoodTableViewController : CategoriesPickerDelegate {
     func reloadPicked(_ array : [Bool]) {
         self.pickedCategories = array
     }
