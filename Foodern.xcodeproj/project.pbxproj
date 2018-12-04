@@ -113,9 +113,9 @@
 				152D50FF21A6FCA1002CBBD3 /* LaunchScreen.storyboard */,
 				152D510221A6FCA1002CBBD3 /* Info.plist */,
 				15584AB221B7458100F2E95B /* controllers */,
-				15A9F0EA21A99CD0001E0503 /* resources */,
+				15584AB421B745D000F2E95B /* resources */,
 				15A9F0E521A99C84001E0503 /* views */,
-				15A9F0E421A99C61001E0503 /* models */,
+				15584AB521B745E100F2E95B /* models */,
 			);
 			path = Foodern;
 			sourceTree = "<group>";
@@ -154,7 +154,15 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		15A9F0E421A99C61001E0503 /* models */ = {
+		15584AB421B745D000F2E95B /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				152ED79621A81B4300249B22 /* fonts */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		15584AB521B745E100F2E95B /* models */ = {
 			isa = PBXGroup;
 			children = (
 				152D511021A703E1002CBBD3 /* SideMenuItem.swift */,
@@ -162,7 +170,7 @@
 				15759D9121AE382D009B57A5 /* ProductVolume.swift */,
 				15759D9321AEFB42009B57A5 /* Category.swift */,
 			);
-			name = models;
+			path = models;
 			sourceTree = "<group>";
 		};
 		15A9F0E521A99C84001E0503 /* views */ = {
@@ -175,14 +183,6 @@
 				1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		15A9F0EA21A99CD0001E0503 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				152ED79621A81B4300249B22 /* fonts */,
-			);
-			name = resources;
 			sourceTree = "<group>";
 		};
 		237AFE5662EF49DD01A93301 /* Frameworks */ = {
