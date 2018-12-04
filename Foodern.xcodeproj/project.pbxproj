@@ -112,9 +112,9 @@
 				152D50FD21A6FCA1002CBBD3 /* Assets.xcassets */,
 				152D50FF21A6FCA1002CBBD3 /* LaunchScreen.storyboard */,
 				152D510221A6FCA1002CBBD3 /* Info.plist */,
+				15584AB221B7458100F2E95B /* controllers */,
 				15A9F0EA21A99CD0001E0503 /* resources */,
 				15A9F0E521A99C84001E0503 /* views */,
-				15A9F0E321A99C30001E0503 /* controllers */,
 				15A9F0E421A99C61001E0503 /* models */,
 			);
 			path = Foodern;
@@ -137,7 +137,7 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
-		15A9F0E321A99C30001E0503 /* controllers */ = {
+		15584AB221B7458100F2E95B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
 				152D510E21A70314002CBBD3 /* ContrainerViewController.swift */,
@@ -151,7 +151,7 @@
 				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
 				156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */,
 			);
-			name = controllers;
+			path = controllers;
 			sourceTree = "<group>";
 		};
 		15A9F0E421A99C61001E0503 /* models */ = {
