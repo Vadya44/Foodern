@@ -32,7 +32,7 @@ class CategoriesPickerViewController: UIViewController {
         tableView.layer.borderColor = #colorLiteral(red: 0.8039215686, green: 0.9333333333, blue: 0.9725490196, alpha: 1)
         tableView.clipsToBounds = true
         
-        for _ in 0...self.results.count {
+        for _ in 0...self.results.count - 1 {
             picked.append(false)
         }
         
@@ -45,7 +45,7 @@ class CategoriesPickerViewController: UIViewController {
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the TableView
                 self.picked.removeAll()
-                for _ in 0...self.results.count {
+                for _ in 0...self.results.count - 1 {
                     self.picked.append(false)
                 }
                 self.tableView.beginUpdates()

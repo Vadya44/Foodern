@@ -14,9 +14,9 @@ class FoodTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mealsSearchBar: UISearchBar!
     
+    let results = try! Realm().objects(ProductItem.self)
+    let pickedResults = try! Realm().objects(Category.self)
     
-    let realm = try! Realm()
-    let results = try! Realm().objects(ProductItem.self).sorted(byKeyPath : "name")
     var notificationToken: NotificationToken?
     
     var pickedCategories : [Bool] = []
@@ -25,13 +25,33 @@ class FoodTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for _ in 0...self.results.count {
+        for _ in 0...self.pickedResults.count - 1 {
             pickedCategories.append(false)
         }
         
         
+        
         self.mealsSearchBar.delegate = self
         
+        self.notificationToken = pickedResults.observe { (changes: RealmCollectionChange) in
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                self.tableView.reloadData()
+                break
+            case .update(_, _, _, _):
+                // Query results have changed, so apply them to the TableView
+                self.pickedCategories.removeAll()
+                for _ in 0...self.pickedResults.count - 1 {
+                    self.pickedCategories.append(false)
+                }
+                break
+            case .error(let err):
+                // An error occurred while opening the Realm file on the background worker thread
+                fatalError("\(err)")
+                break
+            }
+        }
         self.notificationToken = results.observe { (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
@@ -40,10 +60,6 @@ class FoodTableViewController: UIViewController {
                 break
             case .update(_, let deletions, let insertions, let modifications):
                 // Query results have changed, so apply them to the TableView
-                self.pickedCategories.removeAll()
-                for _ in 0...self.results.count {
-                    self.pickedCategories.append(false)
-                }
                 self.tableView.beginUpdates()
                 self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
                 self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)

@@ -77,13 +77,16 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         var categoriesPicked : [Category] = []
         let cnt = pickedCategories.count
         
-        for i in 0...cnt {
+        for i in 0...cnt - 1 {
             if (pickedCategories[i]) {
                 categoriesPicked.append(results[i])
             }
         }
         
-        let newProduct = ProductItem(name: nameTextField.text ?? "undefined",
+        
+        let newProduct = ProductItem()
+        
+        newProduct.setProperties(name: nameTextField.text ?? "undefined",
                                      tempVol: Double(volumeTextField.text ?? "1"),
                                      fullVolume: Double(volumeTextField.text ?? "1"),
                                      isLiquid: isLiq,
@@ -92,7 +95,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                                      isCountable: isCnt,
                                      tempC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
                                      fullC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
-                                     category: categoriesPicked
+                                     categories: categoriesPicked
         )
         
         try! realm.write {

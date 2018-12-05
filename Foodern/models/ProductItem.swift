@@ -10,8 +10,8 @@ import RealmSwift
 import Realm
 
 class ProductItem : Object, ProductVolume {
-    @objc dynamic var name : String
-    @objc dynamic var category : [Category]?
+    @objc dynamic var name : String = "empty"
+    let category = List<Category>() 
 
     @objc dynamic var tempCount : Int = 1
     @objc dynamic var fullCount : Int = 1
@@ -25,7 +25,7 @@ class ProductItem : Object, ProductVolume {
     
     @objc dynamic var tempPercent : Double = 1
     
-    init(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, category : [Category]?) {
+    func setProperties(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, categories : [Category]?) {
         self.name = name
         self.tempPercent = tempCapacity!
         if (tempVol != nil) {
@@ -49,26 +49,11 @@ class ProductItem : Object, ProductVolume {
         if (fullC != nil) {
             self.fullCount = fullC!
         }
-        if (category != nil) {
-            self.category = category!
+        if let categories = categories {
+            self.category.append(objectsIn: categories)
         }
-        super.init()
     }
     
-    required init() {
-        self.name = "empty"
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        self.name = "empty"
-        super.init()
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        self.name = "empty"
-        super.init()
-    }
     
     func getTempVolume() -> Double {
         return tempVolume
@@ -98,5 +83,9 @@ class ProductItem : Object, ProductVolume {
         } else {
             return "\(tempVolume)"
         }
+    }
+    
+    func getCategories() -> [Category]? {
+        return Array(category)
     }
 }
