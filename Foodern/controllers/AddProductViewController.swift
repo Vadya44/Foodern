@@ -10,12 +10,20 @@ import UIKit
 import RealmSwift
 import Realm
 
+enum State {
+    case editing
+    case creating
+}
+
 class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     
+    @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var choosingButton: UIButton!
+    
+    var currentState : State = .creating
     
     var pickedCategories : [Bool] = []
     
@@ -34,6 +42,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     let results = try! Realm().objects(Category.self)
     let realm = try! Realm()
+    
+    func changeState() {
+        currentState = .editing
+    }
     
     
     override func viewDidLoad() {
@@ -114,6 +126,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
         newViewController.initPicked(arr: pickedCategories, delegateTV: self)
         self.present(newViewController, animated: true, completion: nil)
+    }
+    @IBAction func removeButtonClicked(_ sender: Any) {
     }
 }
 

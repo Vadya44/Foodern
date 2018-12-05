@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
         <array key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
         </array>
@@ -169,23 +172,54 @@
                                             <outlet property="cellStackView" destination="GRA-l8-VyG" id="h9b-qW-V73"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductItemCell" id="gFM-y0-udc" customClass="ProductItemCell" customModule="Foodern" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="96" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductItemCell" rowHeight="90" id="gFM-y0-udc" customClass="ProductItemCell" customModule="Foodern" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gFM-y0-udc" id="pP2-5Q-MLu">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m8-3q-xDs">
-                                                    <rect key="frame" x="166.5" y="11.5" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="di5-Nv-KPy">
+                                                    <rect key="frame" x="10" y="5" width="355" height="79.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-SA-BpQ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="ITs-G1-Kvr"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qef-gq-5r4">
+                                                            <rect key="frame" x="90" y="0.0" width="265" height="79.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8m8-3q-xDs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="40"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-S6-dZu">
+                                                                    <rect key="frame" x="0.0" y="45" width="265" height="34.5"/>
+                                                                    <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="Qef-gq-5r4" secondAttribute="bottom" id="4KG-zu-boK"/>
+                                                        <constraint firstItem="Qef-gq-5r4" firstAttribute="top" secondItem="di5-Nv-KPy" secondAttribute="top" id="UXb-jY-08d"/>
+                                                        <constraint firstAttribute="bottom" secondItem="nVE-SA-BpQ" secondAttribute="bottom" id="csX-wU-PXZ"/>
+                                                        <constraint firstItem="nVE-SA-BpQ" firstAttribute="leading" secondItem="di5-Nv-KPy" secondAttribute="leading" id="kji-wq-zHc"/>
+                                                        <constraint firstItem="nVE-SA-BpQ" firstAttribute="top" secondItem="di5-Nv-KPy" secondAttribute="top" id="qon-XI-zF9"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="8m8-3q-xDs" firstAttribute="centerY" secondItem="pP2-5Q-MLu" secondAttribute="centerY" id="2c7-AX-TnQ"/>
-                                                <constraint firstItem="8m8-3q-xDs" firstAttribute="centerX" secondItem="pP2-5Q-MLu" secondAttribute="centerX" id="Zq2-xb-v6l"/>
+                                                <constraint firstAttribute="trailing" secondItem="di5-Nv-KPy" secondAttribute="trailing" constant="10" id="75c-Z5-hfy"/>
+                                                <constraint firstItem="di5-Nv-KPy" firstAttribute="top" secondItem="pP2-5Q-MLu" secondAttribute="top" constant="5" id="BGK-t8-Zo5"/>
+                                                <constraint firstAttribute="bottom" secondItem="di5-Nv-KPy" secondAttribute="bottom" constant="5" id="mHc-Rc-shW"/>
+                                                <constraint firstItem="di5-Nv-KPy" firstAttribute="leading" secondItem="pP2-5Q-MLu" secondAttribute="leading" constant="10" id="sYh-id-7x0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -356,14 +390,27 @@
                                     <constraint firstItem="0NR-wo-srd" firstAttribute="leading" secondItem="RCe-Lt-HMD" secondAttribute="leading" id="vvI-WQ-UHv"/>
                                 </constraints>
                             </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-bV-ssi">
+                                <rect key="frame" x="16" y="630" width="343" height="37"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <state key="normal" title="Удалить">
+                                    <color key="titleColor" red="1" green="0.080151528809999997" blue="0.081284752609999997" alpha="0.63730736301369861" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeButtonClicked:" destination="Qrq-QE-F4O" eventType="touchUpInside" id="wkW-hr-04z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.77552205324172974" green="0.93319195508956909" blue="0.97552448511123657" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="H0a-oR-aNl" firstAttribute="leading" secondItem="Y2f-xs-8m0" secondAttribute="leading" id="2z2-9S-Kx4"/>
                             <constraint firstItem="RCe-Lt-HMD" firstAttribute="bottom" secondItem="oJQ-lT-A8r" secondAttribute="top" id="7TR-7a-8gW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SGe-bV-ssi" secondAttribute="trailing" id="L5c-nF-zEk"/>
+                            <constraint firstItem="SGe-bV-ssi" firstAttribute="leading" secondItem="Y2f-xs-8m0" secondAttribute="leadingMargin" id="LQS-KG-Ea0"/>
                             <constraint firstItem="H0a-oR-aNl" firstAttribute="leading" secondItem="RCe-Lt-HMD" secondAttribute="leading" id="PyH-CV-SpF"/>
                             <constraint firstAttribute="trailing" secondItem="H0a-oR-aNl" secondAttribute="trailing" id="TZy-mu-rOh"/>
                             <constraint firstItem="H0a-oR-aNl" firstAttribute="top" secondItem="UWg-Bp-XnK" secondAttribute="bottom" id="W4i-bz-r05"/>
+                            <constraint firstItem="oJQ-lT-A8r" firstAttribute="top" secondItem="SGe-bV-ssi" secondAttribute="bottom" id="aE5-Uf-cg0"/>
                             <constraint firstItem="H0a-oR-aNl" firstAttribute="trailing" secondItem="RCe-Lt-HMD" secondAttribute="trailing" id="og2-gj-RE1"/>
                             <constraint firstItem="RCe-Lt-HMD" firstAttribute="top" secondItem="H0a-oR-aNl" secondAttribute="bottom" id="vsz-Vh-Ri2"/>
                         </constraints>
@@ -371,6 +418,7 @@
                     <connections>
                         <outlet property="choosingButton" destination="RYe-Mu-6dJ" id="nCe-Sg-tjv"/>
                         <outlet property="nameTextField" destination="e22-YB-rsZ" id="mzp-D4-CcK"/>
+                        <outlet property="removeButton" destination="SGe-bV-ssi" id="sGh-Cc-GAB"/>
                         <outlet property="volumeTextField" destination="csC-8B-8RL" id="PUj-Kt-Vzv"/>
                     </connections>
                 </viewController>
