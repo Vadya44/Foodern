@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Alamofire
 
 class QRCodeScannerViewController : UIViewController {
     
@@ -163,8 +164,29 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                launchApp(decodedURL: "https://qrtests.herokuapp.com/receipts/get?\(metadataObj.stringValue!)")
+                
+                let url = URL(string: "https://qrtests.herokuapp.com/receipts/get?\(metadataObj.stringValue!)")
+                
+                
+                getResultsFromQR(url: url!)
+                
+                dismiss(animated: true, completion: nil)
+                
                 messageLabel.text = metadataObj.stringValue
+            }
+        }
+    }
+    
+    func getResultsFromQR(url : URL) {
+        Alamofire.request(url).responseJSON { response in
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+                print("\n\n \(url)\n\n")
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
             }
         }
     }

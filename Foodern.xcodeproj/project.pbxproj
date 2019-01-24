@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */; };
 		152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */; };
 		152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */; };
 		152D50FC21A6FC9F002CBBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152D50FA21A6FC9F002CBBD3 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromQRProductItemCell.swift; sourceTree = "<group>"; };
 		152D50F321A6FC9F002CBBD3 /* Foodern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				153083EF21AC1809000E0DD2 /* ChoosingCategoryCell.swift */,
 				156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */,
 				1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */,
+				150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */,
 				15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */,
+				150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */,
 				153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */,
 				152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */,
 				153083F221AC23DF000E0DD2 /* AddProductViewController.swift in Sources */,

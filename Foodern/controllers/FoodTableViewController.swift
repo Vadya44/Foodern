@@ -14,11 +14,13 @@ class FoodTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mealsSearchBar: UISearchBar!
     
+    var filteredResults = [ProductItem]()
+    
     let results = try! Realm().objects(ProductItem.self)
     let pickedResults = try! Realm().objects(Category.self)
     
     var notificationToken: NotificationToken?
-    
+    var searchText : String = ""
     var pickedCategories : [Bool] = []
     
     var delegate : FoodTableViewControllerDelegate?
@@ -26,8 +28,9 @@ class FoodTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         for _ in 0...self.pickedResults.count - 1 {
-            pickedCategories.append(false)
+            pickedCategories.append(true)
         }
+        
         
         
         
@@ -37,13 +40,14 @@ class FoodTableViewController: UIViewController {
             switch changes {
             case .initial:
                 // Results are now populated and can be accessed without blocking the UI
+                self.sortResults()
                 self.tableView.reloadData()
                 break
             case .update(_, _, _, _):
                 // Query results have changed, so apply them to the TableView
                 self.pickedCategories.removeAll()
                 for _ in 0...self.pickedResults.count - 1 {
-                    self.pickedCategories.append(false)
+                    self.pickedCategories.append(true)
                 }
                 break
             case .error(let err):
@@ -56,15 +60,12 @@ class FoodTableViewController: UIViewController {
             switch changes {
             case .initial:
                 // Results are now populated and can be accessed without blocking the UI
+                self.sortResults()
                 self.tableView.reloadData()
                 break
-            case .update(_, let deletions, let insertions, let modifications):
+            case .update(_,  _,  _,  _):
                 // Query results have changed, so apply them to the TableView
-                self.tableView.beginUpdates()
-                self.tableView.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-                self.tableView.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-                self.tableView.reloadRows(at: modifications.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-                self.tableView.endUpdates()
+                self.tableView.reloadData()
                 break
             case .error(let err):
                 // An error occurred while opening the Realm file on the background worker thread
@@ -72,6 +73,7 @@ class FoodTableViewController: UIViewController {
                 break
             }
         }
+        sortResults()
     }
 
     @IBAction func SlideBarTapped(_ sender: Any) {
@@ -83,7 +85,7 @@ class FoodTableViewController: UIViewController {
 
 extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 + results.count
+        return 1 + filteredResults.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,7 +105,7 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
         } else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductItemCell", for: indexPath) as! ProductItemCell
-            cell.nameLabel.text = results[indexPath.row - 1].name
+            cell.nameLabel.text = filteredResults[indexPath.row - 1].name
             return cell
         }
     }
@@ -121,10 +123,61 @@ extension FoodTableViewController : SidePanelViewControllerDelegate {
 extension FoodTableViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar)  {
         searchBar.resignFirstResponder()
+        searchBar.endEditing(true)
     }
 }
 extension FoodTableViewController : CategoriesPickerDelegate {
     func reloadPicked(_ array : [Bool]) {
         self.pickedCategories = array
+        sortResults()
+    }
+}
+
+extension FoodTableViewController {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
+        sortResults()
+    }
+    
+    func sortResults() {
+        
+        filteredResults = Array(results)
+        
+        print(filteredResults)
+        
+        var picked = [Category]()
+        for i in 0...pickedCategories.count - 1 {
+            if (pickedCategories[i]) {
+                picked.append(pickedResults[i])
+            }
+        }
+        
+        
+        
+        
+        filteredResults = searchText.isEmpty ? filteredResults : filteredResults.filter({ (item : ProductItem) -> Bool in
+            
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        })
+        
+        
+        if (picked.count == pickedResults.count) {
+            tableView.reloadData()
+            return
+            
+        } else if picked.count == 0 {
+            filteredResults = filteredResults.filter({ (item : ProductItem) -> Bool in
+                return item.category.count == 0
+            })
+            tableView.reloadData()
+            return
+        } else {
+            filteredResults = filteredResults.filter({ (item : ProductItem) -> Bool in
+                return picked.contains(where: item.category.contains)
+            })
+        }
+        
+        
+        tableView.reloadData()
     }
 }

@@ -40,8 +40,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    let results = try! Realm().objects(Category.self)
     let realm = try! Realm()
+    let results = try! Realm().objects(Category.self)
     
     func changeState() {
         currentState = .editing

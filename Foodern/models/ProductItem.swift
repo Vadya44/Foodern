@@ -9,7 +9,7 @@
 import RealmSwift
 import Realm
 
-class ProductItem : Object, ProductVolume {
+@objcMembers class ProductItem : Object, ProductVolume {
     @objc dynamic var name : String = "empty"
     let category = List<Category>() 
 
@@ -49,8 +49,8 @@ class ProductItem : Object, ProductVolume {
         if (fullC != nil) {
             self.fullCount = fullC!
         }
-        if let categories = categories {
-            self.category.append(objectsIn: categories)
+        if let Productcategories = categories {
+            self.category.append(objectsIn: Productcategories)
         }
     }
     

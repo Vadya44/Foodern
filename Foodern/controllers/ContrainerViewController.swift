@@ -202,6 +202,7 @@ private extension ContainerViewController {
             realm.delete(realm.objects(Category.self))
         }
         
+        
         if (realm.objects(Category.self).count == 0) {
             let fridge = Category()
             fridge.stringName = "Холодильник"
