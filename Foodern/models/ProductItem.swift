@@ -11,7 +11,6 @@ import Realm
 
 @objcMembers class ProductItem : Object, ProductVolume {
     @objc dynamic var name : String = "empty"
-    let category = List<Category>() 
 
     @objc dynamic var tempCount : Int = 1
     @objc dynamic var fullCount : Int = 1
@@ -24,6 +23,7 @@ import Realm
     @objc dynamic var isCountable = false
     
     @objc dynamic var tempPercent : Double = 1
+    @objc dynamic var tempCategories : String = ""
     
     func setProperties(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, categories : [Category]?) {
         self.name = name
@@ -50,7 +50,9 @@ import Realm
             self.fullCount = fullC!
         }
         if let Productcategories = categories {
-            self.category.append(objectsIn: Productcategories)
+            for cat in Productcategories {
+                self.tempCategories.append("\(cat.stringName);")
+            }
         }
     }
     
@@ -85,7 +87,7 @@ import Realm
         }
     }
     
-    func getCategories() -> [Category]? {
-        return Array(category)
+    func getCategories() -> String {
+        return self.tempCategories
     }
 }

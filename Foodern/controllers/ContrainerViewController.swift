@@ -35,6 +35,11 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let realm = try! Realm()
+        try! realm.write {
+            realm.delete(realm.objects(ProductItem.self))
+        }
+        
         foodViewController = UIStoryboard.foodViewController()
         foodViewController.delegate = self
         
@@ -201,6 +206,7 @@ private extension ContainerViewController {
         try! realm.write {
             realm.delete(realm.objects(Category.self))
         }
+        
         
         
         if (realm.objects(Category.self).count == 0) {

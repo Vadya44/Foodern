@@ -49,6 +49,7 @@ class FoodTableViewController: UIViewController {
                 for _ in 0...self.pickedResults.count - 1 {
                     self.pickedCategories.append(true)
                 }
+                self.sortResults()
                 break
             case .error(let err):
                 // An error occurred while opening the Realm file on the background worker thread
@@ -65,6 +66,7 @@ class FoodTableViewController: UIViewController {
                 break
             case .update(_,  _,  _,  _):
                 // Query results have changed, so apply them to the TableView
+                self.sortResults()
                 self.tableView.reloadData()
                 break
             case .error(let err):
@@ -105,7 +107,7 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
         } else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProductItemCell", for: indexPath) as! ProductItemCell
-            cell.nameLabel.text = filteredResults[indexPath.row - 1].name
+            cell.configure(product: filteredResults[indexPath.row - 1])
             return cell
         }
     }
@@ -167,14 +169,23 @@ extension FoodTableViewController {
             
         } else if picked.count == 0 {
             filteredResults = filteredResults.filter({ (item : ProductItem) -> Bool in
-                return item.category.count == 0
+                return item.tempCategories.count == 0
             })
             tableView.reloadData()
             return
         } else {
             filteredResults = filteredResults.filter({ (item : ProductItem) -> Bool in
-                return picked.contains(where: item.category.contains)
+                let itemCats = item.tempCategories
+                print("itemcats = \(itemCats)")
+                for choosedCats in picked {
+                    print(choosedCats)
+                    if itemCats.contains(Substring(choosedCats.stringName)) {
+                        return true
+                    }
+                }
+                return false
             })
+            
         }
         
         
