@@ -25,14 +25,16 @@ class FoodTableViewController: UIViewController {
     
     var delegate : FoodTableViewControllerDelegate?
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        ProductItem.writeArrayToJson(array: Array(self.results))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for _ in 0...self.pickedResults.count - 1 {
             pickedCategories.append(true)
         }
-        
-        
-        
         
         self.mealsSearchBar.delegate = self
         
@@ -96,6 +98,12 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
             newViewController.initPicked(arr: pickedCategories, delegateTV: self)
             self.present(newViewController, animated: true, completion: nil)
+        } else {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let editViewController = storyBoard.instantiateViewController(withIdentifier: "AddProductViewController") as!
+                AddProductViewController
+            editViewController.initForEditing(item: filteredResults[indexPath.row - 1])
+            self.present(editViewController, animated: true, completion: nil)
         }
     }
     
@@ -116,9 +124,29 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
 }
 
 extension FoodTableViewController : SidePanelViewControllerDelegate {
-    func didSelectItem(_ item : SideMenuItem) {
-        print(item.name)
+    func didSelectItem(_ number : Int) {
         delegate?.collapseSidePanels?()
+        if number == 1 {
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateNotifyViewController") as? CreateNotifyViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+        }
+        if number == 2 {
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+        }
+        if number == 3 {
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRCodeScannerViewController") as? QRCodeScannerViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+        }
     }
 }
 
@@ -191,4 +219,5 @@ extension FoodTableViewController {
         
         tableView.reloadData()
     }
+    
 }

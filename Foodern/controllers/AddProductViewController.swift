@@ -13,21 +13,33 @@ import Realm
 enum State {
     case editing
     case creating
+    case editingNew
 }
 
 class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     
+    @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var choosingButton: UIButton!
     
+    @IBOutlet weak var navigationBarTitleChanger: UINavigationItem!
+    
+    var parentVC: NewItemsEditingViewController?
+    var editingIndex: Int? = nil
+    
     var currentState : State = .creating
     
-    var pickedCategories : [Bool] = []
+    var picker = UIImagePickerController()
     
-    let variablesForPick = ["гр.", "кг.", "мл.", "л.", "шт.", "другое"]
+    var pickedCategories : [Bool] = []
+    var editingItem : ProductItem? = nil
+    
+    var imageOfProduct: UIImage?
+    
+    let variablesForPick = ["гр.", "мл.", "шт.", "другое"]
     var tempNumberOfVariable : Int = 0
     
     
@@ -43,10 +55,13 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     let realm = try! Realm()
     let results = try! Realm().objects(Category.self)
     
-    func changeState() {
-        currentState = .editing
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        guard let image = self.imageOfProduct else { return }
+        self.productImage.isHidden = false
+        self.productImage.image = image
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +69,57 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             pickedCategories.append(false)
         }
         
+        if self.currentState == .editing {
+            self.removeButton.isEnabled = true
+            self.removeButton.isHidden = false
+            self.initEditing()
+        }
+        
+        if (self.currentState == .editing) {
+            if let name = self.editingItem {
+                self.productImage.isHidden = false
+                self.productImage.image = DataManager.getImage(imageName: name.name)
+            }
+        }
         
         self.nameTextField.delegate = self
         self.volumeTextField.delegate = self
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        if let item = editingItem {
+            self.nameTextField.text = self.editingItem?.name
+            self.volumeTextField.text = self.editingItem?.tempVolume.description
+            self.navigationBarTitleChanger.title = item.name == "" ? "Редактирование" : item.name
+        }
+    }
+    
+    private func initEditing() {
+        if let item = self.editingItem {
+            self.nameTextField.text = item.name
+            self.volumeTextField.text = item.tempVolume.description
+            let categs = item.getCategories().split(separator: ";")
+            for cat in categs {
+                for catName in results {
+                    if cat == catName.stringName,
+                        let ind = results.index(of: catName) {
+                        pickedCategories[ind] = true
+                    }
+                }
+            }
+            if (self.editingItem?.isLiquid ?? false) {
+                self.tempNumberOfVariable = 0
+            } else if (self.editingItem?.isHaveWeight ?? false)
+            {
+                self.tempNumberOfVariable = 1
+            } else if (self.editingItem?.isCountable ?? false)
+            {
+                self.tempNumberOfVariable = 2
+            }
+            else {
+                self.tempNumberOfVariable = 3
+            }
+            self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
+        }
     }
     
     @IBAction func nameTFReturn(_ sender: Any) {
@@ -70,18 +131,22 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func initForEditing(item: ProductItem) {
+        self.currentState = .editing
+        self.editingItem = item
+    }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
         var isLiq = false
         var isHaveW = false
         var isCnt = false
         
-        if (0...1  ~= tempNumberOfVariable) {
+        if (0  == tempNumberOfVariable) {
             isLiq = true
-        } else if (2...3  ~= tempNumberOfVariable)
+        } else if (1  == tempNumberOfVariable)
         {
             isHaveW = true
-        } else if (tempNumberOfVariable == 4)
+        } else if (2 == tempNumberOfVariable)
         {
             isCnt = true
         }
@@ -98,20 +163,49 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         
         let newProduct = ProductItem()
         
-        newProduct.setProperties(name: nameTextField.text ?? "undefined",
-                                     tempVol: Double(volumeTextField.text ?? "1"),
-                                     fullVolume: Double(volumeTextField.text ?? "1"),
-                                     isLiquid: isLiq,
-                                     isHaveW: isHaveW,
-                                     tempCapacity: 1,
-                                     isCountable: isCnt,
-                                     tempC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
-                                     fullC: (isCnt ? Int(volumeTextField.text ?? "1") : nil),
-                                     categories: categoriesPicked
+        var vol = 0.0
+        if (volumeTextField.text?.isDouble())! {
+            vol = Double(volumeTextField.text ?? "0")!
+        }
+        
+        newProduct.setProperties(name: nameTextField.text == ""
+            ? "undefined"
+            : nameTextField.text
+            ?? self.navigationBarTitleChanger.title ?? "undefined",
+                                 tempVol: vol,
+                                 fullVolume: vol,
+                                 isLiquid: isLiq,
+                                 isHaveW: isHaveW,
+                                 tempCapacity: 1,
+                                 isCountable: isCnt,
+                                 tempC: Int(vol),
+                                 fullC: Int(vol),
+                                 categories: categoriesPicked
         )
         
-        try! realm.write {
+        if let removingItem = self.editingItem {
+            let removing = self.realm.objects(ProductItem.self).filter("name = '\(removingItem.name)'")
+            if let name = self.editingItem?.name {
+                DataManager.deleteDirectory(imageName: name)
+            }
+            try! self.realm.write {
+                if removing.count > 0 {
+                    self.realm.delete(removing)
+                }
+            }
+        }
+        
+        try! self.realm.write {
             realm.add(newProduct)
+            if let image = self.productImage.image {
+                DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.name )
+            }
+        }
+        
+        if (self.parentVC != nil) && currentState == .editingNew {
+            if let index = self.editingIndex {
+                self.parentVC!.removeItem(index: index)
+            }
         }
         
         dismiss(animated: true, completion: nil)
@@ -127,7 +221,96 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         newViewController.initPicked(arr: pickedCategories, delegateTV: self)
         self.present(newViewController, animated: true, completion: nil)
     }
+    
     @IBAction func removeButtonClicked(_ sender: Any) {
+        let alert = UIAlertController(title: self.nameTextField.text,
+                                      message: "Are you sure remove this product?",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                if let removingItem = self.editingItem {
+                    let removing = self.realm.objects(ProductItem.self).filter("name = '\(removingItem.name)'")
+                    let name = removingItem.name
+                    try! self.realm.write {
+                        self.realm.delete(removing)
+                    }
+                    DataManager.deleteDirectory(imageName: name)
+                }
+                self.dismiss(animated: true, completion: nil)
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+            }}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                print("canceled")
+                
+            case .cancel:
+                print("cancel")
+                
+            case .destructive:
+                print("destructive")
+            }}))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func addPhotoButtonTapped(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+//        kek.sourceType = .camera
+//
+//        present(kek, animated: true, completion: nil)
+        let alert = UIAlertController(title: self.nameTextField.text,
+                                      message: "Where to get image?",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+                    imagePickerController.sourceType = .camera
+                    self.present(imagePickerController, animated: true, completion: nil)
+                } else {
+                    let alertWarning = UIAlertView(title:"Warning", message: "You don't have camera or permissions", delegate:nil, cancelButtonTitle:"OK")
+                    alertWarning.show()
+                }
+                
+            case .cancel: break
+            case .destructive: break
+            }}))
+        alert.addAction(UIAlertAction(title: "Library", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+                
+                imagePickerController.allowsEditing = false
+                
+                self.present(imagePickerController, animated: true)
+            case .cancel: break
+            case .destructive: break
+            }}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+            switch action.style{
+            case .default:
+                alert.dismiss(animated: true, completion: nil)
+            case .cancel: break
+            case .destructive: break
+            }}))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func configureWithVC(vc: UIViewController, index: Int) {
+        if vc is NewItemsEditingViewController {
+            self.currentState = .editingNew
+            self.parentVC = vc as? NewItemsEditingViewController
+            self.editingIndex = index
+        }
     }
 }
 
@@ -143,5 +326,36 @@ extension AddProductViewController : AddProductViewControllerDelegate {
 extension AddProductViewController : CategoriesPickerDelegate {
     func reloadPicked(_ array : [Bool]) {
         self.pickedCategories = array
+    }
+    
+}
+
+extension AddProductViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[.originalImage] as? UIImage else {
+                return
+        }
+        
+        self.imageOfProduct = image
+        //dismiss(animated:true, completion: nil)
+    }
+    
+
+}
+
+
+extension String {
+    func isDouble() -> Bool {
+        
+        if let doubleValue = Double(self) {
+            
+            if doubleValue >= 0 {
+                return true
+            }
+        }
+        
+        return false
     }
 }

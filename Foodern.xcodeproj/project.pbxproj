@@ -11,7 +11,6 @@
 		152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */; };
 		152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */; };
 		152D50FC21A6FC9F002CBBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152D50FA21A6FC9F002CBBD3 /* Main.storyboard */; };
-		152D50FE21A6FCA1002CBBD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 152D50FD21A6FCA1002CBBD3 /* Assets.xcassets */; };
 		152D510121A6FCA1002CBBD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152D50FF21A6FCA1002CBBD3 /* LaunchScreen.storyboard */; };
 		152D510921A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D510821A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift */; };
 		152D510B21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D510A21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift */; };
@@ -21,8 +20,21 @@
 		152D511321A706F8002CBBD3 /* SideItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D511221A706F8002CBBD3 /* SideItemCell.swift */; };
 		153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153083EF21AC1809000E0DD2 /* ChoosingCategoryCell.swift */; };
 		153083F221AC23DF000E0DD2 /* AddProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153083F121AC23DF000E0DD2 /* AddProductViewController.swift */; };
+		15426A2A224420890080D1C6 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D8F21AE37EF009B57A5 /* ProductItem.swift */; };
+		15426A2B224420AB0080D1C6 /* ProductVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9121AE382D009B57A5 /* ProductVolume.swift */; };
+		15426A2E224421D20080D1C6 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 15426A2D224421D20080D1C6 /* Products.json */; };
+		15426A2F224421D20080D1C6 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 15426A2D224421D20080D1C6 /* Products.json */; };
+		15426A30224421D20080D1C6 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 15426A2D224421D20080D1C6 /* Products.json */; };
 		1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */; };
 		1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */; };
+		15649D30223E4E6700269540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15649D2F223E4E6700269540 /* Assets.xcassets */; };
+		15649D37223E4E6700269540 /* FoodernWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 15649D36223E4E6700269540 /* FoodernWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		15649D3C223E4E6700269540 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15649D3B223E4E6700269540 /* InterfaceController.swift */; };
+		15649D3E223E4E6700269540 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15649D3D223E4E6700269540 /* ExtensionDelegate.swift */; };
+		15649D40223E4E6900269540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15649D3F223E4E6900269540 /* Assets.xcassets */; };
+		15649D44223E4E6900269540 /* FoodernWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 15649D2A223E4E6500269540 /* FoodernWatch.app */; };
+		1567DD7722466FE5007AABB8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1567DD7622466FE5007AABB8 /* DataManager.swift */; };
+		1567DD792246DDC7007AABB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1567DD782246DDC5007AABB8 /* Assets.xcassets */; };
 		156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */; };
 		156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */; };
 		156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */; };
@@ -31,8 +43,61 @@
 		15759D9421AEFB42009B57A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
 		15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */; };
 		15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */; };
+		15B5F7EF2247A62900BDF4A9 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */; };
+		15B5F7F32247B22E00BDF4A9 /* CreateNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */; };
+		15B5F7F52247CE1000BDF4A9 /* notifyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7F42247CE1000BDF4A9 /* notifyTableViewCell.swift */; };
+		15B5F7F72247E53F00BDF4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B5F7F62247E53E00BDF4A9 /* Interface.storyboard */; };
+		15B5F7F92247E81E00BDF4A9 /* rowConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7F82247E81E00BDF4A9 /* rowConroller.swift */; };
+		15B5F7FA2247E86C00BDF4A9 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15B5F7F62247E53E00BDF4A9 /* Interface.storyboard */; };
+		15B5F7FB2247F7B900BDF4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1567DD782246DDC5007AABB8 /* Assets.xcassets */; };
+		15B5F7FC2247F7BA00BDF4A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1567DD782246DDC5007AABB8 /* Assets.xcassets */; };
+		15DC90192242D5CF00F11D93 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
+		15E501AB224159FB0008C2A1 /* NewItemsEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */; };
 		87470AFB4F849468A1041AEF /* Pods_Foodern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CD55A9DEE407CE3D834A101 /* Pods_Foodern.framework */; };
+		E52493472F8ED00E856A018F /* Pods_FoodernWatch_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 810B8C1038C0AA99FA74BC6F /* Pods_FoodernWatch_Extension.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		15649D38223E4E6700269540 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 152D50EB21A6FC9F002CBBD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15649D35223E4E6700269540;
+			remoteInfo = "FoodernWatch Extension";
+		};
+		15649D42223E4E6900269540 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 152D50EB21A6FC9F002CBBD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 15649D29223E4E6500269540;
+			remoteInfo = FoodernWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		15649D4A223E4E6900269540 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				15649D37223E4E6700269540 /* FoodernWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15649D4C223E4E6900269540 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				15649D44223E4E6900269540 /* FoodernWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromQRProductItemCell.swift; sourceTree = "<group>"; };
@@ -40,7 +105,6 @@
 		152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		152D50FB21A6FC9F002CBBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		152D50FD21A6FCA1002CBBD3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		152D510021A6FCA1002CBBD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		152D510221A6FCA1002CBBD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		152D510821A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewControllerDelegate.swift; sourceTree = "<group>"; };
@@ -61,8 +125,19 @@
 		152ED7A021A81B4500249B22 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		153083EF21AC1809000E0DD2 /* ChoosingCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosingCategoryCell.swift; sourceTree = "<group>"; };
 		153083F121AC23DF000E0DD2 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
+		15426A2D224421D20080D1C6 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; tabWidth = 2; };
 		1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
+		15649D2A223E4E6500269540 /* FoodernWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodernWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		15649D2F223E4E6700269540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15649D31223E4E6700269540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15649D36223E4E6700269540 /* FoodernWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "FoodernWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15649D3B223E4E6700269540 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		15649D3D223E4E6700269540 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		15649D3F223E4E6900269540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		15649D41223E4E6900269540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1567DD7622466FE5007AABB8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		1567DD782246DDC5007AABB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewControllerDelegate.swift; sourceTree = "<group>"; };
 		156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPickerViewController.swift; sourceTree = "<group>"; };
 		156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
@@ -71,9 +146,22 @@
 		15759D9321AEFB42009B57A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCell.swift; sourceTree = "<group>"; };
 		15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablePickerViewController.swift; sourceTree = "<group>"; };
+		15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotifyViewController.swift; sourceTree = "<group>"; };
+		15B5F7F42247CE1000BDF4A9 /* notifyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notifyTableViewCell.swift; sourceTree = "<group>"; };
+		15B5F7F62247E53E00BDF4A9 /* Interface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
+		15B5F7F82247E81E00BDF4A9 /* rowConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rowConroller.swift; sourceTree = "<group>"; };
+		15DC901A224359A700F11D93 /* Foodern.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Foodern.entitlements; sourceTree = "<group>"; };
+		15DC901B224361A800F11D93 /* FoodernWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FoodernWatch Extension.entitlements"; sourceTree = "<group>"; };
+		15DC901C224361B300F11D93 /* FoodernWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FoodernWatch.entitlements; sourceTree = "<group>"; };
+		15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsEditingViewController.swift; sourceTree = "<group>"; };
 		1CD55A9DEE407CE3D834A101 /* Pods_Foodern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foodern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		332385E442E7FD7CD9235512 /* Pods_FoodernWatch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodernWatch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A13708B777B4D3E9ED2EF4 /* Pods-Foodern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodern.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foodern/Pods-Foodern.debug.xcconfig"; sourceTree = "<group>"; };
+		61B62C897DB06E2D71767565 /* Pods-FoodernWatch Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodernWatch Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodernWatch Extension/Pods-FoodernWatch Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		810B8C1038C0AA99FA74BC6F /* Pods_FoodernWatch_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodernWatch_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F9580485DBE0389E25F460 /* Pods-Foodern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foodern.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foodern/Pods-Foodern.release.xcconfig"; sourceTree = "<group>"; };
+		EE7A05A4EB2145E4F9983A03 /* Pods-FoodernWatch Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodernWatch Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodernWatch Extension/Pods-FoodernWatch Extension.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,13 +173,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15649D33223E4E6700269540 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E52493472F8ED00E856A018F /* Pods_FoodernWatch_Extension.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73E9D0E540DC410FB2655FE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		152D50EA21A6FC9F002CBBD3 = {
 			isa = PBXGroup;
 			children = (
+				15426A2C224421A10080D1C6 /* Shared */,
 				152D50F521A6FC9F002CBBD3 /* Foodern */,
+				15649D2B223E4E6500269540 /* FoodernWatch */,
+				15649D3A223E4E6700269540 /* FoodernWatch Extension */,
 				152D50F421A6FC9F002CBBD3 /* Products */,
 				E89634DF56ED77A5FA8D8242 /* Pods */,
 				237AFE5662EF49DD01A93301 /* Frameworks */,
@@ -102,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				152D50F321A6FC9F002CBBD3 /* Foodern.app */,
+				15649D2A223E4E6500269540 /* FoodernWatch.app */,
+				15649D36223E4E6700269540 /* FoodernWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,15 +217,17 @@
 		152D50F521A6FC9F002CBBD3 /* Foodern */ = {
 			isa = PBXGroup;
 			children = (
+				15DC901A224359A700F11D93 /* Foodern.entitlements */,
+				1567DD782246DDC5007AABB8 /* Assets.xcassets */,
 				152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */,
 				152D50FA21A6FC9F002CBBD3 /* Main.storyboard */,
-				152D50FD21A6FCA1002CBBD3 /* Assets.xcassets */,
 				152D50FF21A6FCA1002CBBD3 /* LaunchScreen.storyboard */,
 				152D510221A6FCA1002CBBD3 /* Info.plist */,
 				15584AB221B7458100F2E95B /* controllers */,
 				15584AB421B745D000F2E95B /* resources */,
 				15A9F0E521A99C84001E0503 /* views */,
 				15584AB521B745E100F2E95B /* models */,
+				1567DD7622466FE5007AABB8 /* DataManager.swift */,
 			);
 			path = Foodern;
 			sourceTree = "<group>";
@@ -139,6 +249,15 @@
 			path = fonts;
 			sourceTree = "<group>";
 		};
+		15426A2C224421A10080D1C6 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				15426A2D224421D20080D1C6 /* Products.json */,
+				15759D8F21AE37EF009B57A5 /* ProductItem.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		15584AB221B7458100F2E95B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +271,9 @@
 				1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */,
 				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
 				156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */,
+				15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */,
+				15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */,
+				15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -168,11 +290,34 @@
 			isa = PBXGroup;
 			children = (
 				152D511021A703E1002CBBD3 /* SideMenuItem.swift */,
-				15759D8F21AE37EF009B57A5 /* ProductItem.swift */,
 				15759D9121AE382D009B57A5 /* ProductVolume.swift */,
 				15759D9321AEFB42009B57A5 /* Category.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		15649D2B223E4E6500269540 /* FoodernWatch */ = {
+			isa = PBXGroup;
+			children = (
+				15DC901C224361B300F11D93 /* FoodernWatch.entitlements */,
+				15B5F7F62247E53E00BDF4A9 /* Interface.storyboard */,
+				15649D2F223E4E6700269540 /* Assets.xcassets */,
+				15649D31223E4E6700269540 /* Info.plist */,
+			);
+			path = FoodernWatch;
+			sourceTree = "<group>";
+		};
+		15649D3A223E4E6700269540 /* FoodernWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				15DC901B224361A800F11D93 /* FoodernWatch Extension.entitlements */,
+				15649D3B223E4E6700269540 /* InterfaceController.swift */,
+				15649D3D223E4E6700269540 /* ExtensionDelegate.swift */,
+				15649D3F223E4E6900269540 /* Assets.xcassets */,
+				15649D41223E4E6900269540 /* Info.plist */,
+				15B5F7F82247E81E00BDF4A9 /* rowConroller.swift */,
+			);
+			path = "FoodernWatch Extension";
 			sourceTree = "<group>";
 		};
 		15A9F0E521A99C84001E0503 /* views */ = {
@@ -184,6 +329,7 @@
 				156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */,
 				1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */,
 				150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */,
+				15B5F7F42247CE1000BDF4A9 /* notifyTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -192,6 +338,8 @@
 			isa = PBXGroup;
 			children = (
 				1CD55A9DEE407CE3D834A101 /* Pods_Foodern.framework */,
+				332385E442E7FD7CD9235512 /* Pods_FoodernWatch.framework */,
+				810B8C1038C0AA99FA74BC6F /* Pods_FoodernWatch_Extension.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -201,6 +349,8 @@
 			children = (
 				49A13708B777B4D3E9ED2EF4 /* Pods-Foodern.debug.xcconfig */,
 				D5F9580485DBE0389E25F460 /* Pods-Foodern.release.xcconfig */,
+				61B62C897DB06E2D71767565 /* Pods-FoodernWatch Extension.debug.xcconfig */,
+				EE7A05A4EB2145E4F9983A03 /* Pods-FoodernWatch Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -217,15 +367,54 @@
 				152D50F021A6FC9F002CBBD3 /* Frameworks */,
 				152D50F121A6FC9F002CBBD3 /* Resources */,
 				141EF6B6C263D27C1B40F587 /* [CP] Embed Pods Frameworks */,
+				15649D4C223E4E6900269540 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				15649D43223E4E6900269540 /* PBXTargetDependency */,
 			);
 			name = Foodern;
 			productName = Foodern;
 			productReference = 152D50F321A6FC9F002CBBD3 /* Foodern.app */;
 			productType = "com.apple.product-type.application";
+		};
+		15649D29223E4E6500269540 /* FoodernWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15649D4B223E4E6900269540 /* Build configuration list for PBXNativeTarget "FoodernWatch" */;
+			buildPhases = (
+				15649D28223E4E6500269540 /* Resources */,
+				15649D4A223E4E6900269540 /* Embed App Extensions */,
+				73E9D0E540DC410FB2655FE7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				15649D39223E4E6700269540 /* PBXTargetDependency */,
+			);
+			name = FoodernWatch;
+			productName = FoodernWatch;
+			productReference = 15649D2A223E4E6500269540 /* FoodernWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		15649D35223E4E6700269540 /* FoodernWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15649D49223E4E6900269540 /* Build configuration list for PBXNativeTarget "FoodernWatch Extension" */;
+			buildPhases = (
+				2CDA01ADF04CE16F72CF7CFC /* [CP] Check Pods Manifest.lock */,
+				15649D32223E4E6700269540 /* Sources */,
+				15649D33223E4E6700269540 /* Frameworks */,
+				15649D34223E4E6700269540 /* Resources */,
+				8F1ED4CB3F0B1DAF543E98F4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FoodernWatch Extension";
+			productName = "FoodernWatch Extension";
+			productReference = 15649D36223E4E6700269540 /* FoodernWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -233,12 +422,33 @@
 		152D50EB21A6FC9F002CBBD3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "Вадим Гатауллин";
 				TargetAttributes = {
 					152D50F221A6FC9F002CBBD3 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					15649D29223E4E6500269540 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					15649D35223E4E6700269540 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -256,6 +466,8 @@
 			projectRoot = "";
 			targets = (
 				152D50F221A6FC9F002CBBD3 /* Foodern */,
+				15649D29223E4E6500269540 /* FoodernWatch */,
+				15649D35223E4E6700269540 /* FoodernWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -265,9 +477,32 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15426A2E224421D20080D1C6 /* Products.json in Resources */,
 				152D510121A6FCA1002CBBD3 /* LaunchScreen.storyboard in Resources */,
-				152D50FE21A6FCA1002CBBD3 /* Assets.xcassets in Resources */,
+				1567DD792246DDC7007AABB8 /* Assets.xcassets in Resources */,
 				152D50FC21A6FC9F002CBBD3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15649D28223E4E6500269540 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15649D30223E4E6700269540 /* Assets.xcassets in Resources */,
+				15B5F7F72247E53F00BDF4A9 /* Interface.storyboard in Resources */,
+				15B5F7FC2247F7BA00BDF4A9 /* Assets.xcassets in Resources */,
+				15426A2F224421D20080D1C6 /* Products.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		15649D34223E4E6700269540 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15426A30224421D20080D1C6 /* Products.json in Resources */,
+				15B5F7FA2247E86C00BDF4A9 /* Interface.storyboard in Resources */,
+				15B5F7FB2247F7B900BDF4A9 /* Assets.xcassets in Resources */,
+				15649D40223E4E6900269540 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,9 +516,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Foodern/Pods-Foodern-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-iOS/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-iOS/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -314,6 +549,46 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2CDA01ADF04CE16F72CF7CFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodernWatch Extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F1ED4CB3F0B1DAF543E98F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FoodernWatch Extension/Pods-FoodernWatch Extension-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm-watchOS/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift-watchOS/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FoodernWatch Extension/Pods-FoodernWatch Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,10 +597,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */,
+				1567DD7722466FE5007AABB8 /* DataManager.swift in Sources */,
+				15B5F7EF2247A62900BDF4A9 /* AboutAppViewController.swift in Sources */,
+				15B5F7F32247B22E00BDF4A9 /* CreateNotifyViewController.swift in Sources */,
 				15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */,
 				150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */,
 				153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */,
 				152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */,
+				15B5F7F52247CE1000BDF4A9 /* notifyTableViewCell.swift in Sources */,
+				15E501AB224159FB0008C2A1 /* NewItemsEditingViewController.swift in Sources */,
 				153083F221AC23DF000E0DD2 /* AddProductViewController.swift in Sources */,
 				156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */,
 				152D511321A706F8002CBBD3 /* SideItemCell.swift in Sources */,
@@ -345,7 +625,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		15649D32223E4E6700269540 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15426A2A224420890080D1C6 /* ProductItem.swift in Sources */,
+				15426A2B224420AB0080D1C6 /* ProductVolume.swift in Sources */,
+				15649D3E223E4E6700269540 /* ExtensionDelegate.swift in Sources */,
+				15649D3C223E4E6700269540 /* InterfaceController.swift in Sources */,
+				15DC90192242D5CF00F11D93 /* Category.swift in Sources */,
+				15B5F7F92247E81E00BDF4A9 /* rowConroller.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		15649D39223E4E6700269540 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15649D35223E4E6700269540 /* FoodernWatch Extension */;
+			targetProxy = 15649D38223E4E6700269540 /* PBXContainerItemProxy */;
+		};
+		15649D43223E4E6900269540 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 15649D29223E4E6500269540 /* FoodernWatch */;
+			targetProxy = 15649D42223E4E6900269540 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		152D50FA21A6FC9F002CBBD3 /* Main.storyboard */ = {
@@ -370,6 +676,7 @@
 		152D510321A6FCA1002CBBD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -425,12 +732,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		152D510421A6FCA1002CBBD3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -479,6 +788,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -488,6 +798,7 @@
 			baseConfigurationReference = 49A13708B777B4D3E9ED2EF4 /* Pods-Foodern.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Foodern/Foodern.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4G7NU3343;
 				INFOPLIST_FILE = Foodern/Info.plist;
@@ -508,6 +819,7 @@
 			baseConfigurationReference = D5F9580485DBE0389E25F460 /* Pods-Foodern.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Foodern/Foodern.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Z4G7NU3343;
 				INFOPLIST_FILE = Foodern/Info.plist;
@@ -520,6 +832,96 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		15649D45223E4E6900269540 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodernWatch/FoodernWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z4G7NU3343;
+				IBSC_MODULE = FoodernWatch_Extension;
+				INFOPLIST_FILE = FoodernWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = vprod.Foodern.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		15649D46223E4E6900269540 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FoodernWatch/FoodernWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z4G7NU3343;
+				IBSC_MODULE = FoodernWatch_Extension;
+				INFOPLIST_FILE = FoodernWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = vprod.Foodern.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		15649D47223E4E6900269540 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61B62C897DB06E2D71767565 /* Pods-FoodernWatch Extension.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "FoodernWatch Extension/FoodernWatch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z4G7NU3343;
+				INFOPLIST_FILE = "FoodernWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vprod.Foodern.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		15649D48223E4E6900269540 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE7A05A4EB2145E4F9983A03 /* Pods-FoodernWatch Extension.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "FoodernWatch Extension/FoodernWatch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z4G7NU3343;
+				INFOPLIST_FILE = "FoodernWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = vprod.Foodern.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_REFLECTION_METADATA_LEVEL = all;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
 			};
 			name = Release;
 		};
@@ -540,6 +942,24 @@
 			buildConfigurations = (
 				152D510621A6FCA1002CBBD3 /* Debug */,
 				152D510721A6FCA1002CBBD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15649D49223E4E6900269540 /* Build configuration list for PBXNativeTarget "FoodernWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15649D47223E4E6900269540 /* Debug */,
+				15649D48223E4E6900269540 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15649D4B223E4E6900269540 /* Build configuration list for PBXNativeTarget "FoodernWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15649D45223E4E6900269540 /* Debug */,
+				15649D46223E4E6900269540 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

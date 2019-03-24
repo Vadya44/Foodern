@@ -17,7 +17,7 @@ class VariablePickerViewController: UIViewController, UIPickerViewDelegate, UIPi
     var delegate : AddProductViewControllerDelegate?
     var currentRow : Int = 0
     
-    let variablesForPick = ["гр.", "кг.", "мл.", "л.", "другое"]
+    let variablesForPick = ["гр.", "мл.", "шт.", "другое"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol SidePanelViewControllerDelegate {
-    func didSelectItem(_ item: SideMenuItem)
+    func didSelectItem(_ number: Int)
 }

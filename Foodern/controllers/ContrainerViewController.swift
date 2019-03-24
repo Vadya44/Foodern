@@ -35,11 +35,6 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.delete(realm.objects(ProductItem.self))
-        }
-        
         foodViewController = UIStoryboard.foodViewController()
         foodViewController.delegate = self
         
@@ -50,7 +45,7 @@ class ContainerViewController: UIViewController {
         foodNavigationController.didMove(toParent: self)
         
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
-        foodNavigationController.view.addGestureRecognizer(panGestureRecognizer)
+        self.view.addGestureRecognizer(panGestureRecognizer)
         
         ContainerViewController.createCategories()
     }
@@ -153,11 +148,8 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                 showShadowForCenterViewController(true)
             }
             
-        case .changed:
-            if let rview = recognizer.view {
-                rview.center.x = rview.center.x + recognizer.translation(in: view).x
-                recognizer.setTranslation(CGPoint.zero, in: view)
-            }
+        case .changed: 
+            self.foodViewController.view.endEditing(true)
             
         case .ended:
             if let _ = sideViewController,

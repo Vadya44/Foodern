@@ -62,19 +62,9 @@ extension SidePanelViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 6 {
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRCodeScannerViewController") as? QRCodeScannerViewController
-            {
-                present(vc, animated: true, completion: nil)
-            }
-            
-        }
-        
-        let item = items[indexPath.row]
-        
         self.setRow(row: indexPath.row)
         
-        delegate?.didSelectItem(item)
+        delegate?.didSelectItem(indexPath.row)
     }
 }
 
