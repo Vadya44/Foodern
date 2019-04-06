@@ -47,6 +47,7 @@ class ContainerViewController: UIViewController {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
         self.view.addGestureRecognizer(panGestureRecognizer)
         
+        
         ContainerViewController.createCategories()
     }
 }
@@ -148,8 +149,9 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
                 showShadowForCenterViewController(true)
             }
             
-        case .changed: 
-            self.foodViewController.view.endEditing(true)
+        case .changed:
+            break
+            //self.foodViewController.view.endEditing(true)
             
         case .ended:
             if let _ = sideViewController,

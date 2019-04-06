@@ -193,28 +193,28 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
             }
         }
     }
-    func presentTableView() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewItemsEditingViewController") as! NewItemsEditingViewController
-        
-        var kek: [ProductItem] = []
-        
-        let kek12 = ProductItem()
-        let kek11 = ProductItem()
-        let kek13 = ProductItem()
-        kek12.setProperties(name: "kek11", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek13.setProperties(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek11.setProperties(name: "kek13", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        
-        kek.append(kek12)
-        kek.append(kek11)
-        kek.append(kek13)
-        
-        newViewController.dataSource = kek
-        self.removeSpinner()
-        
-        self.present(newViewController, animated: true, completion: nil)
-    }
+//    func presentTableView() {
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewItemsEditingViewController") as! NewItemsEditingViewController
+//
+//        var kek: [ProductItem] = []
+//
+//        let kek12 = ProductItem()
+//        let kek11 = ProductItem()
+//        let kek13 = ProductItem()
+//        kek12.setProperties(name: "kek11", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+//        kek13.setProperties(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+//        kek11.setProperties(name: "kek13", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+//
+//        kek.append(kek12)
+//        kek.append(kek11)
+//        kek.append(kek13)
+//
+//        newViewController.dataSource = kek
+//        self.removeSpinner()
+//
+//        self.present(newViewController, animated: true, completion: nil)
+//    }
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -273,7 +273,7 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
                                             let strQuanity = tempProduct["quantity"] as! Int64
                                             let nameStr = String(utf8String: strName.cString(using: .utf8)!)
                                             let newProduct = ProductItem()
-                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), fullVolume: Double(strQuanity), isLiquid: false, isHaveW: false, tempCapacity: Double(strQuanity), isCountable: false, tempC: Int(strQuanity), fullC: Int(strQuanity), categories: nil)
+                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil)
                                             items.append(newProduct)
                                         }
                                     }

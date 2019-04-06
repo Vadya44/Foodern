@@ -173,13 +173,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             : nameTextField.text
             ?? self.navigationBarTitleChanger.title ?? "undefined",
                                  tempVol: vol,
-                                 fullVolume: vol,
                                  isLiquid: isLiq,
                                  isHaveW: isHaveW,
-                                 tempCapacity: 1,
                                  isCountable: isCnt,
-                                 tempC: Int(vol),
-                                 fullC: Int(vol),
                                  categories: categoriesPicked
         )
         

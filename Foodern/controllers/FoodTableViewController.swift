@@ -127,20 +127,27 @@ extension FoodTableViewController : SidePanelViewControllerDelegate {
     func didSelectItem(_ number : Int) {
         delegate?.collapseSidePanels?()
         if number == 1 {
+//            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRCodeScannerViewController") as? QRCodeScannerViewController
+//            {
+//                self.present(vc, animated: true, completion: nil)
+//            }
+            
+        }
+        if number == 2 {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CreateNotifyViewController") as? CreateNotifyViewController
             {
                 self.present(vc, animated: true, completion: nil)
             }
             
         }
-        if number == 2 {
+        if number == 3 {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController
             {
                 self.present(vc, animated: true, completion: nil)
             }
             
         }
-        if number == 3 {
+        if number == 4 {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRCodeScannerViewController") as? QRCodeScannerViewController
             {
                 self.present(vc, animated: true, completion: nil)

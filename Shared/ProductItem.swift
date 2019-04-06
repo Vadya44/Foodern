@@ -11,30 +11,21 @@ import Realm
 import Foundation
 import UIKit
 
-@objcMembers class ProductItem : Object, ProductVolume, Codable {
+@objcMembers class ProductItem : Object, Codable {
     @objc dynamic var name : String = "empty"
-
-    @objc dynamic var tempCount : Int = 1
-    @objc dynamic var fullCount : Int = 1
     
     @objc dynamic var tempVolume : Double = 1
-    @objc dynamic var fullVolume : Double = 1
     
     @objc dynamic var isLiquid = false
     @objc dynamic var isHaveWeight = false
     @objc dynamic var isCountable = false
     
-    @objc dynamic var tempPercent : Double = 1
     @objc dynamic var tempCategories : String = ""
     
-    func setProperties(name: String, tempVol : Double?, fullVolume : Double?, isLiquid : Bool?, isHaveW : Bool?, tempCapacity : Double?, isCountable : Bool?, tempC : Int?, fullC : Int?, categories : [Category]?) {
+    func setProperties(name: String, tempVol : Double?, isLiquid : Bool?, isHaveW : Bool?, isCountable : Bool?, categories : [Category]?) {
         self.name = name
-        self.tempPercent = tempCapacity ?? self.tempPercent
         if (tempVol != nil) {
             self.tempVolume = tempVol!
-        }
-        if fullVolume != nil {
-            self.fullVolume = fullVolume!
         }
         if (isLiquid != nil) {
             self.isLiquid = isLiquid!
@@ -44,12 +35,6 @@ import UIKit
         }
         if (isCountable != nil) {
             self.isCountable = isCountable!
-        }
-        if (tempC != nil) {
-            self.tempCount = tempC!
-        }
-        if (fullC != nil) {
-            self.fullCount = fullC!
         }
         if let Productcategories = categories {
             for cat in Productcategories {
@@ -63,27 +48,13 @@ import UIKit
         return tempVolume
     }
     
-    func setTempVolume(newVolume : Double) {
-        self.tempVolume = newVolume
-        self.tempPercent = tempVolume / fullVolume
-    }
-    
-    func setTempCount(newCount : Int) {
-        self.tempCount = newCount
-        self.tempPercent = (Double)(tempCount) / (Double)(fullCount)
-    }
-    
-    func getTempPercent() -> Double {
-        return tempPercent
-    }
-    
     func getVolumeString() -> String {
         if (isLiquid) {
             return "\(tempVolume) л."
         } else if (isHaveWeight) {
             return "\(tempVolume) гр."
         } else if (isCountable) {
-            return "\(tempCount) шт."
+            return "\(tempVolume) шт."
         } else {
             return "\(tempVolume)"
         }
@@ -106,15 +77,15 @@ import UIKit
         let kek7 = ProductItem()
         let kek8 = ProductItem()
         let kek9 = ProductItem()
-        kek2.setProperties(name: "Морковь", tempVol: 2.0, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek1.setProperties(name: "Картофель", tempVol: 3.1, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek3.setProperties(name: "Огурец", tempVol: 1.2, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek4.setProperties(name: "Куринное филе", tempVol: 1.0, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek5.setProperties(name: "Корнишон", tempVol: 1.5, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek6.setProperties(name: "Помидоры", tempVol: 16.2, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek7.setProperties(name: "Вода", tempVol: 87.0, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek8.setProperties(name: "Молоко", tempVol: 71.1, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-        kek9.setProperties(name: "Сок яблочный", tempVol: 112.2, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+        kek2.setProperties(name: "Морковь", tempVol: 2.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek1.setProperties(name: "Картофель", tempVol: 3.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek3.setProperties(name: "Огурец", tempVol: 1.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek4.setProperties(name: "Куринное филе", tempVol: 1.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek5.setProperties(name: "Корнишон", tempVol: nil, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek6.setProperties(name: "Помидоры", tempVol: 16.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek7.setProperties(name: "Вода", tempVol: 87.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek8.setProperties(name: "Молоко", tempVol: 71.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek9.setProperties(name: "Сок яблочный", tempVol: 112.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
         
         
         kek.append(kek1)
@@ -194,16 +165,13 @@ import UIKit
     
     convenience init(dictionary: [String: Any]) {
         let name = dictionary["name"]! as! String
-        let tempCount = dictionary["tempCount"]! as! Int
-        let fullCount = dictionary["fullCount"]! as! Int
         let tempVolume = dictionary["tempVolume"]! as! Double
-        let fullVolume = dictionary["fullVolume"]! as! Double
         let isLiquid = dictionary["isLiquid"]! as! Bool
         let isHaveWeight = dictionary["isHaveWeight"]! as! Bool
         let isCountable = dictionary["isCountable"]! as! Bool
         
         self.init()
-        self.setProperties(name: name, tempVol: tempVolume, fullVolume: fullVolume, isLiquid: isLiquid, isHaveW: isHaveWeight, tempCapacity: nil, isCountable: isCountable, tempC: tempCount, fullC: fullCount, categories: nil)
+        self.setProperties(name: name, tempVol: tempVolume, isLiquid: isLiquid, isHaveW: isHaveWeight, isCountable: isCountable, categories: nil)
         //self.setPro
     }
 

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150727242258B37800161D06 /* ReceiptTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150727232258B37800161D06 /* ReceiptTextViewController.swift */; };
+		150727262258B3A100161D06 /* ReceiptIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150727252258B3A100161D06 /* ReceiptIngredientsViewController.swift */; };
+		150727282258B3BB00161D06 /* ReceiptsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150727272258B3BB00161D06 /* ReceiptsListViewController.swift */; };
+		1507272A2258BCA000161D06 /* IngridientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150727292258BCA000161D06 /* IngridientTableViewCell.swift */; };
+		1507272C2258CB5000161D06 /* ReceiptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1507272B2258CB5000161D06 /* ReceiptTableViewCell.swift */; };
 		150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */; };
 		152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */; };
 		152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */; };
@@ -38,6 +43,7 @@
 		156EECAA21B35A7D006B8910 /* AddProductViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */; };
 		156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */; };
 		156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */; };
+		157091AB2254DFF300CB5253 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157091AA2254DFF300CB5253 /* Receipt.swift */; };
 		15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D8F21AE37EF009B57A5 /* ProductItem.swift */; };
 		15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9121AE382D009B57A5 /* ProductVolume.swift */; };
 		15759D9421AEFB42009B57A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
@@ -100,6 +106,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		150727232258B37800161D06 /* ReceiptTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTextViewController.swift; sourceTree = "<group>"; };
+		150727252258B3A100161D06 /* ReceiptIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptIngredientsViewController.swift; sourceTree = "<group>"; };
+		150727272258B3BB00161D06 /* ReceiptsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptsListViewController.swift; sourceTree = "<group>"; };
+		150727292258BCA000161D06 /* IngridientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngridientTableViewCell.swift; sourceTree = "<group>"; };
+		1507272B2258CB5000161D06 /* ReceiptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptTableViewCell.swift; sourceTree = "<group>"; };
 		150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromQRProductItemCell.swift; sourceTree = "<group>"; };
 		152D50F321A6FC9F002CBBD3 /* Foodern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foodern.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		152D50F621A6FC9F002CBBD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +152,7 @@
 		156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewControllerDelegate.swift; sourceTree = "<group>"; };
 		156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesPickerViewController.swift; sourceTree = "<group>"; };
 		156EECAD21B43C41006B8910 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		157091AA2254DFF300CB5253 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 		15759D8F21AE37EF009B57A5 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		15759D9121AE382D009B57A5 /* ProductVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVolume.swift; sourceTree = "<group>"; };
 		15759D9321AEFB42009B57A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -274,6 +286,9 @@
 				15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */,
 				15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */,
 				15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */,
+				150727272258B3BB00161D06 /* ReceiptsListViewController.swift */,
+				150727252258B3A100161D06 /* ReceiptIngredientsViewController.swift */,
+				150727232258B37800161D06 /* ReceiptTextViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -292,6 +307,7 @@
 				152D511021A703E1002CBBD3 /* SideMenuItem.swift */,
 				15759D9121AE382D009B57A5 /* ProductVolume.swift */,
 				15759D9321AEFB42009B57A5 /* Category.swift */,
+				157091AA2254DFF300CB5253 /* Receipt.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -330,6 +346,8 @@
 				1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */,
 				150F273F21F9E1900002E47C /* FromQRProductItemCell.swift */,
 				15B5F7F42247CE1000BDF4A9 /* notifyTableViewCell.swift */,
+				150727292258BCA000161D06 /* IngridientTableViewCell.swift */,
+				1507272B2258CB5000161D06 /* ReceiptTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -599,7 +617,10 @@
 				15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */,
 				1567DD7722466FE5007AABB8 /* DataManager.swift in Sources */,
 				15B5F7EF2247A62900BDF4A9 /* AboutAppViewController.swift in Sources */,
+				157091AB2254DFF300CB5253 /* Receipt.swift in Sources */,
+				1507272C2258CB5000161D06 /* ReceiptTableViewCell.swift in Sources */,
 				15B5F7F32247B22E00BDF4A9 /* CreateNotifyViewController.swift in Sources */,
+				150727262258B3A100161D06 /* ReceiptIngredientsViewController.swift in Sources */,
 				15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */,
 				150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */,
 				153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */,
@@ -617,8 +638,11 @@
 				156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */,
 				1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */,
 				152D511121A703E1002CBBD3 /* SideMenuItem.swift in Sources */,
+				150727242258B37800161D06 /* ReceiptTextViewController.swift in Sources */,
 				152D510D21A702DF002CBBD3 /* SidePanelViewController.swift in Sources */,
 				152D510921A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift in Sources */,
+				150727282258B3BB00161D06 /* ReceiptsListViewController.swift in Sources */,
+				1507272A2258BCA000161D06 /* IngridientTableViewCell.swift in Sources */,
 				152D510B21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift in Sources */,
 				15759D9421AEFB42009B57A5 /* Category.swift in Sources */,
 				1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */,

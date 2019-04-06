@@ -20,7 +20,7 @@ struct SideMenuItem {
     static func allItems() -> [SideMenuItem] {
         return [
         SideMenuItem(name: "Мои Запасы", image: UIImage(named: "fridge")),
-        //SideMenuItem(name: "Рецепты", image: UIImage(named: "receipts")),
+        SideMenuItem(name: "Рецепты", image: UIImage(named: "receipts")),
         SideMenuItem(name: "Запланировать покупку", image: UIImage(named: "createNotify")),
         //SideMenuItem(name: "Настройки", image : UIImage(named: "settings")),
         SideMenuItem(name: "О Программе", image : UIImage(named: "appInfo")),
