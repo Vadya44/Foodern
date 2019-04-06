@@ -270,25 +270,65 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		15584AB221B7458100F2E95B /* controllers */ = {
+		154789B222590397007E0A5B /* ReceiptsModule */ = {
 			isa = PBXGroup;
 			children = (
-				152D510E21A70314002CBBD3 /* ContrainerViewController.swift */,
-				152D510821A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift */,
-				152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */,
-				152D510A21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift */,
-				152D510C21A702DF002CBBD3 /* SidePanelViewController.swift */,
-				153083F121AC23DF000E0DD2 /* AddProductViewController.swift */,
-				156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */,
-				1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */,
-				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
-				156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */,
-				15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */,
-				15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */,
-				15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */,
 				150727272258B3BB00161D06 /* ReceiptsListViewController.swift */,
 				150727252258B3A100161D06 /* ReceiptIngredientsViewController.swift */,
 				150727232258B37800161D06 /* ReceiptTextViewController.swift */,
+			);
+			path = ReceiptsModule;
+			sourceTree = "<group>";
+		};
+		154789B3225903A9007E0A5B /* QRCodeAddingModule */ = {
+			isa = PBXGroup;
+			children = (
+				1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */,
+				15E501AA224159FB0008C2A1 /* NewItemsEditingViewController.swift */,
+			);
+			path = QRCodeAddingModule;
+			sourceTree = "<group>";
+		};
+		154789B4225903C8007E0A5B /* NotificationsModule */ = {
+			isa = PBXGroup;
+			children = (
+				15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */,
+			);
+			path = NotificationsModule;
+			sourceTree = "<group>";
+		};
+		154789B5225903E6007E0A5B /* SideMenuModule */ = {
+			isa = PBXGroup;
+			children = (
+				152D510E21A70314002CBBD3 /* ContrainerViewController.swift */,
+				152D510A21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift */,
+				152D510C21A702DF002CBBD3 /* SidePanelViewController.swift */,
+			);
+			path = SideMenuModule;
+			sourceTree = "<group>";
+		};
+		154789B622590409007E0A5B /* FoodTableAndAddingModules */ = {
+			isa = PBXGroup;
+			children = (
+				15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */,
+				156EECAB21B3728E006B8910 /* CategoriesPickerViewController.swift */,
+				152D510821A6FEBD002CBBD3 /* FoodTableViewControllerDelegate.swift */,
+				152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */,
+				153083F121AC23DF000E0DD2 /* AddProductViewController.swift */,
+				156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */,
+			);
+			path = FoodTableAndAddingModules;
+			sourceTree = "<group>";
+		};
+		15584AB221B7458100F2E95B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				154789B4225903C8007E0A5B /* NotificationsModule */,
+				154789B5225903E6007E0A5B /* SideMenuModule */,
+				154789B622590409007E0A5B /* FoodTableAndAddingModules */,
+				154789B3225903A9007E0A5B /* QRCodeAddingModule */,
+				154789B222590397007E0A5B /* ReceiptsModule */,
+				15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
