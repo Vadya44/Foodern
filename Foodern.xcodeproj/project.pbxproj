@@ -31,6 +31,7 @@
 		15426A2F224421D20080D1C6 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 15426A2D224421D20080D1C6 /* Products.json */; };
 		15426A30224421D20080D1C6 /* Products.json in Resources */ = {isa = PBXBuildFile; fileRef = 15426A2D224421D20080D1C6 /* Products.json */; };
 		1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */; };
+		154789B822591110007E0A5B /* UIColor+ColorByPercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154789B722591110007E0A5B /* UIColor+ColorByPercentage.swift */; };
 		1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */; };
 		15649D30223E4E6700269540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15649D2F223E4E6700269540 /* Assets.xcassets */; };
 		15649D37223E4E6700269540 /* FoodernWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 15649D36223E4E6700269540 /* FoodernWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -138,6 +139,7 @@
 		153083F121AC23DF000E0DD2 /* AddProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductViewController.swift; sourceTree = "<group>"; };
 		15426A2D224421D20080D1C6 /* Products.json */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = text.json; path = Products.json; sourceTree = "<group>"; tabWidth = 2; };
 		1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		154789B722591110007E0A5B /* UIColor+ColorByPercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorByPercentage.swift"; sourceTree = "<group>"; };
 		1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
 		15649D2A223E4E6500269540 /* FoodernWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodernWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15649D2F223E4E6700269540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				15A9F0E521A99C84001E0503 /* views */,
 				15584AB521B745E100F2E95B /* models */,
 				1567DD7622466FE5007AABB8 /* DataManager.swift */,
+				154789B722591110007E0A5B /* UIColor+ColorByPercentage.swift */,
 			);
 			path = Foodern;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				15759D9021AE37EF009B57A5 /* ProductItem.swift in Sources */,
 				150F274021F9E1900002E47C /* FromQRProductItemCell.swift in Sources */,
 				153083F021AC1809000E0DD2 /* ChoosingCategoryCell.swift in Sources */,
+				154789B822591110007E0A5B /* UIColor+ColorByPercentage.swift in Sources */,
 				152D50F921A6FC9F002CBBD3 /* FoodTableViewController.swift in Sources */,
 				15B5F7F52247CE1000BDF4A9 /* notifyTableViewCell.swift in Sources */,
 				15E501AB224159FB0008C2A1 /* NewItemsEditingViewController.swift in Sources */,

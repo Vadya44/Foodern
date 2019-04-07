@@ -11,13 +11,16 @@ import RealmSwift
 
 struct ReceiptDescr {
     let percentage: Double
+    let productItems: [ProductItem]
     let receipt: Receipt
     
-    init(perc: Double, rec: Receipt) {
+    init(perc: Double, rec: Receipt, products: [ProductItem]) {
         self.percentage = perc
         self.receipt = rec
+        self.productItems = products
     }
 }
+
 
 class ReceiptsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -26,11 +29,12 @@ class ReceiptsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
+        // TODO: Make in background
         self.createReceiptList()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
@@ -62,5 +66,20 @@ extension ReceiptsListViewController {
         let receipts = try! Realm().objects(Receipt.self)
         
         
+        receipts.forEach { (receipt) in
+            let prodList = receipt.getProductsList()
+            var resultArray: [ProductItem] = []
+            prodList.forEach({ (product) in
+                myProducts.forEach({ (myProd) in
+                    if myProd.name.contains(product.description) {
+                        resultArray.append(myProd)
+                    }
+                })
+            })
+            let receiptDescr = ReceiptDescr(perc: (Double)(resultArray.count)/(Double)(prodList.count)*100,
+                                            rec: receipt,
+                                            products: resultArray)
+            dataSource.append(receiptDescr)
+        }
     }
 }

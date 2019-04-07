@@ -18,7 +18,7 @@ class ReceiptTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.receiptName.text = self.receiptDescr?.receipt.name
         self.percentageLabel.text = self.receiptDescr?.percentage.description
-        //self.percentageLabel.textColor = 
+        self.percentageLabel.textColor = UIColor.takeColorByPercentage(percetange: CGFloat(self.receiptDescr!.percentage))
     }
     
     public func configure(recDescr: ReceiptDescr) {

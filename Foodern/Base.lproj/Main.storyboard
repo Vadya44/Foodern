@@ -340,13 +340,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NI0-yx-BZM">
-                                                        <rect key="frame" x="0.0" y="0.0" width="90.333333333333329" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="30"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Хлопья кукурузные" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="e22-YB-rsZ">
-                                                        <rect key="frame" x="105.33333333333334" y="0.0" width="259.66666666666663" height="30"/>
+                                                        <rect key="frame" x="114" y="0.0" width="251" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
@@ -360,13 +360,13 @@
                                                 <rect key="frame" x="0.0" y="40" width="365" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" text="Вес/объем" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rog-HX-wtO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="148.33333333333334" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="154" height="30"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="100" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="csC-8B-8RL">
-                                                        <rect key="frame" x="168.33333333333334" y="0.0" width="72.333333333333343" height="30"/>
+                                                        <rect key="frame" x="174" y="0.0" width="71.666666666666686" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
@@ -375,7 +375,7 @@
                                                         </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="RYe-Mu-6dJ">
-                                                        <rect key="frame" x="260.66666666666669" y="0.0" width="104.33333333333331" height="30"/>
+                                                        <rect key="frame" x="265.66666666666669" y="0.0" width="99.333333333333314" height="30"/>
                                                         <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="17"/>
                                                         <state key="normal" title="гр / мл ">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -390,7 +390,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCT-7j-3oz">
-                                        <rect key="frame" x="0.0" y="90" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="90" width="375" height="40"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Выбрать категории"/>
@@ -399,7 +399,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NR-wo-srd">
-                                        <rect key="frame" x="0.0" y="142" width="375" height="36"/>
+                                        <rect key="frame" x="0.0" y="146" width="375" height="40"/>
                                         <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="20"/>
                                         <state key="normal" title="Добавить фото">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -409,7 +409,7 @@
                                         </connections>
                                     </button>
                                     <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="WTD-iM-dJB">
-                                        <rect key="frame" x="37.666666666666657" y="198" width="300" height="300"/>
+                                        <rect key="frame" x="37.666666666666657" y="206" width="300" height="300"/>
                                         <subviews>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1Mp-PN-Jul">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
@@ -446,7 +446,7 @@
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGe-bV-ssi">
-                                <rect key="frame" x="16" y="745" width="343" height="33"/>
+                                <rect key="frame" x="16" y="741" width="343" height="37"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
                                 <state key="normal" title="Удалить">
                                     <color key="titleColor" red="1" green="0.080151528809999997" blue="0.081284752609999997" alpha="0.63730736301369861" colorSpace="custom" customColorSpace="sRGB"/>

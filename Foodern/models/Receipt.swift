@@ -14,8 +14,12 @@ import UIKit
     @objc dynamic var name : String = "empty"
     @objc dynamic var products : String = "empty"
     @objc dynamic var receipt : String = "empty"
+    @objc dynamic var regexText: String = "empty"
     
-    func setProperties(name: String, prodList: [String], receipttext: String) {
+    func setProperties(name: String,
+                       prodList: [String],
+                       receipttext: String,
+                       regex: String) {
         self.name = name
         var prodListString = ""
         prodList.forEach { (prod) in
@@ -23,9 +27,18 @@ import UIKit
         }
         self.products = prodListString
         self.receipt = receipttext
+        self.regexText = regex
     }
     
     func getProductsList() -> [String] {
-        return self.products.components(separatedBy: ";")
+        var result = self.products.components(separatedBy: ";")
+        result.forEach { (prod) in
+            if prod.isEmpty {
+                if let index = result.firstIndex(of: prod) {
+                    result.remove(at: index)
+                }
+            }
+        }
+        return result
     }
 }
