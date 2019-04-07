@@ -57,21 +57,28 @@ extension ReceiptsListViewController: UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let ingrVC = storyBoard.instantiateViewController(withIdentifier: "ReceiptIngredientsViewController") as!
+        ReceiptIngredientsViewController
+        ingrVC.setReceipt(rec: dataSource[indexPath.row])
+        self.present(ingrVC, animated: true, completion: nil)
+    }
 }
 
 extension ReceiptsListViewController {
     private func createReceiptList() {
+        Receipt.generateList()
         let myProducts = try! Realm().objects(ProductItem.self)
         let receipts = try! Realm().objects(Receipt.self)
         
         
         receipts.forEach { (receipt) in
-            let prodList = receipt.getProductsList()
+            let prodList = receipt.getRegexesList()
             var resultArray: [ProductItem] = []
             prodList.forEach({ (product) in
                 myProducts.forEach({ (myProd) in
-                    if myProd.name.contains(product.description) {
+                    if myProd.name.lowercased().contains(product.description.lowercased()) {
                         resultArray.append(myProd)
                     }
                 })

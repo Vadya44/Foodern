@@ -11,7 +11,7 @@ import UIKit
 class ReceiptIngredientsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    private var receipt: Receipt?
+    private var receipt: ReceiptDescr?
     @IBOutlet weak var navBarTitle: UINavigationItem!
     
     override func viewDidLoad() {
@@ -24,13 +24,13 @@ class ReceiptIngredientsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        self.navBarTitle.title = receipt?.name
+        self.navBarTitle.title = receipt?.receipt.name
     }
     
     @IBAction func receiptTextButtonClicked(_ sender: Any) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "ReceiptTextViewController") as! ReceiptTextViewController
-        newViewController.setReceipt(rec: self.receipt!)
+        newViewController.setReceipt(rec: self.receipt!.receipt)
         self.present(newViewController, animated: true, completion: nil)
     }
     
@@ -38,7 +38,7 @@ class ReceiptIngredientsViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    public func setReceipt(rec: Receipt) {
+    public func setReceipt(rec: ReceiptDescr) {
         self.receipt = rec
     }
 
@@ -46,12 +46,12 @@ class ReceiptIngredientsViewController: UIViewController {
 
 extension ReceiptIngredientsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.receipt!.getProductsList().count
+        return self.receipt!.receipt.getProductsList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngridientTableViewCell", for: indexPath) as! IngridientTableViewCell
-       //cell.configure(with: <#T##String#>, product: <#T##ProductItem#>)
+        //cell.configure(with: self.receipt!.receipt.name, product: self.receipt!.productItems)
         return cell
     }
     

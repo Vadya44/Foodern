@@ -16,13 +16,13 @@ class ReceiptTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.receiptName.text = self.receiptDescr?.receipt.name
-        self.percentageLabel.text = self.receiptDescr?.percentage.description
-        self.percentageLabel.textColor = UIColor.takeColorByPercentage(percetange: CGFloat(self.receiptDescr!.percentage))
     }
     
     public func configure(recDescr: ReceiptDescr) {
         self.receiptDescr = recDescr
+        self.receiptName.text = self.receiptDescr?.receipt.name
+        self.percentageLabel.text = self.receiptDescr?.percentage.description
+        self.percentageLabel.textColor = UIColor.takeColorByPercentage(percetange: CGFloat(self.receiptDescr!.percentage))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
