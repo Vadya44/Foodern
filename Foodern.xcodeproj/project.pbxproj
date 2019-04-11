@@ -49,6 +49,7 @@
 		15759D9221AE382D009B57A5 /* ProductVolume.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9121AE382D009B57A5 /* ProductVolume.swift */; };
 		15759D9421AEFB42009B57A5 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9321AEFB42009B57A5 /* Category.swift */; };
 		15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */; };
+		157A8373225D22FF009771FE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157A8372225D22FF009771FE /* ImageViewController.swift */; };
 		15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */; };
 		15B5F7EF2247A62900BDF4A9 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */; };
 		15B5F7F32247B22E00BDF4A9 /* CreateNotifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */; };
@@ -159,6 +160,7 @@
 		15759D9121AE382D009B57A5 /* ProductVolume.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVolume.swift; sourceTree = "<group>"; };
 		15759D9321AEFB42009B57A5 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		15759D9521AEFCBF009B57A5 /* ProductItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemCell.swift; sourceTree = "<group>"; };
+		157A8372225D22FF009771FE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		15961D1821B2FD72006BDD79 /* VariablePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariablePickerViewController.swift; sourceTree = "<group>"; };
 		15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		15B5F7F22247B22E00BDF4A9 /* CreateNotifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotifyViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				152D50F821A6FC9F002CBBD3 /* FoodTableViewController.swift */,
 				153083F121AC23DF000E0DD2 /* AddProductViewController.swift */,
 				156EECA921B35A7D006B8910 /* AddProductViewControllerDelegate.swift */,
+				157A8372225D22FF009771FE /* ImageViewController.swift */,
 			);
 			path = FoodTableAndAddingModules;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */,
 				15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */,
 				156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */,
+				157A8373225D22FF009771FE /* ImageViewController.swift in Sources */,
 				152D510F21A70314002CBBD3 /* ContrainerViewController.swift in Sources */,
 				152D50F721A6FC9F002CBBD3 /* AppDelegate.swift in Sources */,
 				156EECAC21B3728E006B8910 /* CategoriesPickerViewController.swift in Sources */,

@@ -41,7 +41,11 @@ class DataManager {
         let fileManager = FileManager.default
         let imagePath = (DataManager.getDirectoryPath() as NSString).appendingPathComponent("image\(imageName)")
         if fileManager.fileExists(atPath: imagePath) {
-            return UIImage(contentsOfFile: imagePath)!
+            if let imageTemp = UIImage(contentsOfFile: imagePath) {
+                return imageTemp
+            } else {
+                return UIImage.init(named: "placeholder")!
+            }
         }else{
             print("No Image available")
             return UIImage.init(named: "placeholder")! // Return placeholder image here

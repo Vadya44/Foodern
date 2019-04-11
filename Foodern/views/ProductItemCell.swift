@@ -22,9 +22,8 @@ class ProductItemCell : UITableViewCell {
         self.productImage.layer.cornerRadius = self.productImage.bounds.height / 3
         self.productImage.layer.masksToBounds = true
         self.nameLabel.text = product.name
-        if product.getTempVolume() != 0 {
-            let tempVolume = String(format:"%.2f", product.getTempVolume())
-            self.capacityLabel.text = "\(tempVolume)"
+        if !product.getVolumeString().isEmpty {
+            self.capacityLabel.text = product.getVolumeString()
         }
         self.productImage.image = DataManager.getImage(imageName: product.name)
     }

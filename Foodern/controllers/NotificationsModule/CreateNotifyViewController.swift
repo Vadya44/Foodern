@@ -37,7 +37,7 @@ class CreateNotifyViewController: UIViewController, UITextViewDelegate {
         cnt = notifys.count
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy hh.mm"
+        formatter.dateFormat = "dd.MM.yyyy HH.mm"
         let text = formatter.string(from: datePicker.date)
         self.dateBtn.titleLabel!.text = "на \(text)"
     }
@@ -104,7 +104,7 @@ class CreateNotifyViewController: UIViewController, UITextViewDelegate {
     @objc func donedatePicker(){
         //For date formate
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy hh:mm"
+        formatter.dateFormat = "dd.MM.yyyy HH:mm"
         let text = formatter.string(from: datePicker.date)
         self.dateBtn.titleLabel!.text = "на \(text)"
         self.removeSpinner()
@@ -169,6 +169,13 @@ extension CreateNotifyViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notifyTableViewCell", for: indexPath) as! notifyTableViewCell
         cell.dateLabel.text = notifys[indexPath.row].content.subtitle
+        if let calendarNotificationTrigger = notifys[indexPath.row].trigger as? UNCalendarNotificationTrigger,
+            let nextTriggerDate = calendarNotificationTrigger.nextTriggerDate()  {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy HH:mm"
+            cell.dateLabel.text = formatter.string(from: nextTriggerDate)
+        }
+        
         cell.descrLabel.text = notifys[indexPath.row].content.body
         return cell
     }

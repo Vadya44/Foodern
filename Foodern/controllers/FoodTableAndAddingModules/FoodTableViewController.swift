@@ -81,6 +81,7 @@ class FoodTableViewController: UIViewController {
     }
 
     @IBAction func SlideBarTapped(_ sender: Any) {
+        self.view.endEditing(true)
         delegate?.toggleLeftPanel?()
     }
     

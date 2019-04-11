@@ -29,9 +29,16 @@ class IngridientTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    public func configure(with ingridientName: String, product: ProductItem) {
-        self.vol = "\(product.name) \(product.getVolumeString())"
+    public func configure(with ingridientName: String, product: ProductItem?) {
+        if let myProd = product {
+            self.vol = "\(myProd.name) \(myProd.getVolumeString())"
+        } else {
+            self.vol = "Отсутствует"
+        }
         self.ingrName = ingridientName
+        
+        self.myIngridientLabel.text = self.vol
+        self.ingridientName.text = self.ingrName
     }
 
 }

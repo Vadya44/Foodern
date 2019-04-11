@@ -19,13 +19,17 @@ class ReceiptTextViewController: UIViewController {
 
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         self.navBarTitle.title = receipt?.name
         self.receiptTextView.text = receipt?.receipt
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    }
+
     public func setReceipt(rec: Receipt) {
         self.receipt = rec
     }

@@ -27,22 +27,25 @@ class ReceiptsListViewController: UIViewController {
     
     var dataSource: [ReceiptDescr] = []
     
+    var vSpiner: UIView?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.showSpinner(onView: self.view)
 
-        // TODO: Make in background
+        // TODO: Still needed background
         self.createReceiptList()
     }
     
     @IBAction func cancelButtonClicked(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func addReceiptButtonClicked(_ sender: Any) {
-        
     }
 }
 
@@ -68,6 +71,7 @@ extension ReceiptsListViewController: UITableViewDelegate, UITableViewDataSource
 
 extension ReceiptsListViewController {
     private func createReceiptList() {
+        
         Receipt.generateList()
         let myProducts = try! Realm().objects(ProductItem.self)
         let receipts = try! Realm().objects(Receipt.self)
@@ -87,6 +91,30 @@ extension ReceiptsListViewController {
                                             rec: receipt,
                                             products: resultArray)
             dataSource.append(receiptDescr)
+        }
+        
+        self.removeSpinner()
+    }
+    
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        self.vSpiner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            self.vSpiner?.removeFromSuperview()
+            self.vSpiner = nil
         }
     }
 }

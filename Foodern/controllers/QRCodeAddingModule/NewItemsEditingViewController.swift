@@ -33,8 +33,23 @@ class NewItemsEditingViewController: UIViewController {
     
     @IBAction func didSaveAllButtonTapped(_ sender: Any) {
         let realm = try! Realm()
-        try! realm.write {
-            realm.add(dataSource)
+        dataSource.forEach { (newProduct) in
+            try! realm.write {
+                let duplicate = realm.objects(ProductItem.self).filter({ (item : ProductItem) -> Bool in
+                    if item.name.lowercased() == newProduct.name.lowercased() {
+                        return true
+                    }
+                    return false
+                })
+                if duplicate.count == 0 {
+                    realm.add(newProduct)
+                }
+                else if duplicate.count == 1 {
+                    newProduct.tempVolume += duplicate[0].tempVolume
+                    realm.delete(duplicate[0])
+                    realm.add(newProduct)
+                }
+            }
         }
         self.dismiss(animated: true, completion: {
             self.dismiss(animated: false, completion: nil)

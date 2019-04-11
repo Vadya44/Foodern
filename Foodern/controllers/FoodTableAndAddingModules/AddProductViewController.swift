@@ -63,8 +63,28 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         self.productImage.image = image
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if self.traitCollection.forceTouchCapability == .available
+        {
+            registerForPreviewing(with: self, sourceView: view)
+        }
+        else
+        {
+            print("3D Touch Not Available")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.traitCollection.forceTouchCapability == .available
+        {
+            registerForPreviewing(with: self, sourceView: view)
+        }
+        else
+        {
+            print("3D Touch Not Available")
+        }
+        
         for _ in 0...self.results.count {
             pickedCategories.append(false)
         }
@@ -137,6 +157,12 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        if !(self.volumeTextField.text?.isDouble() ?? false) {
+            let alertWarning = UIAlertView(title:"Ошибка", message: "Введены некорректные данные", delegate:nil, cancelButtonTitle:"Продолжить")
+            alertWarning.show()
+            return
+        }
+        
         var isLiq = false
         var isHaveW = false
         var isCnt = false
@@ -192,9 +218,22 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         }
         
         try! self.realm.write {
-            realm.add(newProduct)
-            if let image = self.productImage.image {
-                DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.name )
+            let duplicate = self.realm.objects(ProductItem.self).filter({ (item : ProductItem) -> Bool in
+                if item.name.lowercased() == newProduct.name.lowercased() {
+                    return true
+                }
+                return false
+            })
+            if duplicate.count == 0 {
+                realm.add(newProduct)
+                if let image = self.productImage.image {
+                    DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.name )
+                }
+            }
+            else if duplicate.count == 1 {
+                newProduct.tempVolume += duplicate[0].tempVolume
+                self.realm.delete(duplicate[0])
+                self.realm.add(newProduct)
             }
         }
         
@@ -353,5 +392,32 @@ extension String {
         }
         
         return false
+    }
+}
+
+extension AddProductViewController: UIViewControllerPreviewingDelegate
+{
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController?
+    {
+        
+        let convertedLocation = view.convert(location, to: self.productImage)
+        if self.productImage.bounds.contains(convertedLocation)
+        {
+            // Init the peek view controller, set relevant properties, and return it
+            let otherViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as? ImageViewController
+            otherViewController?.image = self.productImage.image
+            previewingContext.sourceRect = self.productImage.frame
+            return otherViewController
+        }
+        else
+        {
+            return nil
+        }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController)
+    {
+        // Present or push the view controller
+        present(viewControllerToCommit, animated: true)
     }
 }
