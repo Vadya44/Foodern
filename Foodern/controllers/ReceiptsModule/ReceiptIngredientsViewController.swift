@@ -25,9 +25,9 @@ class ReceiptIngredientsViewController: UIViewController {
             receipt?.productItems.forEach({ (myItem) in
                 if myItem.name.lowercased().contains(prodFromRec.description.lowercased()) {
                     self.myProdsForReceipts[i] = myItem
+                    i = i + 1
                 } else {
                 }
-                i = i + 1
             })
         }
         
