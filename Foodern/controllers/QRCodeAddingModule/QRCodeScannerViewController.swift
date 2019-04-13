@@ -203,7 +203,7 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
 //        let kek11 = ProductItem()
 //        let kek13 = ProductItem()
 //        kek12.setProperties(name: "kek11", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-//        kek13.setProperties(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+//        kek13.а(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
 //        kek11.setProperties(name: "kek13", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
 //
 //        kek.append(kek12)
@@ -273,7 +273,7 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
                                             let strQuanity = tempProduct["quantity"] as! Int64
                                             let nameStr = String(utf8String: strName.cString(using: .utf8)!)
                                             let newProduct = ProductItem()
-                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil)
+                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: Double(strQuanity))
                                             items.append(newProduct)
                                         }
                                     }

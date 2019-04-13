@@ -46,8 +46,7 @@ class DataManager {
             } else {
                 return UIImage.init(named: "placeholder")!
             }
-        }else{
-            print("No Image available")
+        } else {
             return UIImage.init(named: "placeholder")! // Return placeholder image here
         }
     }

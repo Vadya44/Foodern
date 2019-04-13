@@ -13,8 +13,11 @@ import RealmSwift
 class FoodTableViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mealsSearchBar: UISearchBar!
+    @IBOutlet weak var redItemButton: UIBarButtonItem!
+    @IBOutlet weak var usualItemsButton: UIBarButtonItem!
     
     var filteredResults = [ProductItem]()
+    var isUsual = true
     
     let results = try! Realm().objects(ProductItem.self)
     let pickedResults = try! Realm().objects(Category.self)
@@ -28,6 +31,10 @@ class FoodTableViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         ProductItem.writeArrayToJson(array: Array(self.results))
+        self.configureState()
+    }
+    func hideKeyboard() {
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
@@ -84,6 +91,20 @@ class FoodTableViewController: UIViewController {
         self.view.endEditing(true)
         delegate?.toggleLeftPanel?()
     }
+    @IBAction func usualButtonItemClicked(_ sender: Any) {
+        self.hideKeyboard()
+        self.usualItemsButton.isEnabled = false
+        self.redItemButton.isEnabled = true
+        self.isUsual = true
+        self.sortResults()
+    }
+    @IBAction func redButtonItemClicked(_ sender: Any) {
+        self.hideKeyboard()
+        self.redItemButton.isEnabled = false
+        self.usualItemsButton.isEnabled = true
+        self.isUsual = false
+        self.sortResults()
+    }
     
 }
 
@@ -94,6 +115,7 @@ extension FoodTableViewController : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.hideKeyboard()
         if indexPath.row == 0 {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let newViewController = storyBoard.instantiateViewController(withIdentifier: "CategoriesPickerViewController") as! CategoriesPickerViewController
@@ -179,9 +201,14 @@ extension FoodTableViewController {
     
     func sortResults() {
         
-        filteredResults = Array(results)
-        
-        print(filteredResults)
+        self.filteredResults = Array(results)
+        if !isUsual {
+            self.filteredResults = self.filteredResults.filter { (item) -> Bool in
+                return item.getTempOfInitial() <= 30.0
+            }
+            self.tableView.reloadData()
+            return
+        }
         
         var picked = [Category]()
         for i in 0...pickedCategories.count - 1 {
@@ -212,9 +239,7 @@ extension FoodTableViewController {
         } else {
             filteredResults = filteredResults.filter({ (item : ProductItem) -> Bool in
                 let itemCats = item.tempCategories
-                print("itemcats = \(itemCats)")
                 for choosedCats in picked {
-                    print(choosedCats)
                     if itemCats.contains(Substring(choosedCats.stringName)) {
                         return true
                     }
@@ -226,6 +251,12 @@ extension FoodTableViewController {
         
         
         tableView.reloadData()
+    }
+    private func configureState() {
+        self.usualItemsButton.isEnabled = false
+        self.redItemButton.isEnabled = true
+        self.isUsual = true
+        self.sortResults()
     }
     
 }

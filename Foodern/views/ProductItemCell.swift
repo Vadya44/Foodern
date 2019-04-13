@@ -26,6 +26,13 @@ class ProductItemCell : UITableViewCell {
             self.capacityLabel.text = product.getVolumeString()
         }
         self.productImage.image = DataManager.getImage(imageName: product.name)
+        if product.getTempOfInitial() <= 30.0 {
+            self.containerView.backgroundColor = UIColor.init(displayP3Red: 255, green: 0, blue: 0, alpha: 0.1)
+        } else if (product.getTempOfInitial() >= 70) {
+            self.containerView.backgroundColor = UIColor.init(displayP3Red: 0, green: 255, blue: 0, alpha: 0.1)
+        } else {
+            self.containerView.backgroundColor = UIColor.init(displayP3Red: 255, green: 255, blue: 0, alpha: 0.1)
+        }
     }
     
 }

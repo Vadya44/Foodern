@@ -79,13 +79,16 @@ extension ReceiptsListViewController {
         
         receipts.forEach { (receipt) in
             let prodList = receipt.getRegexesList()
+            let prodValues = receipt.getVolumesList()
+            var cnt: Int = 0
             var resultArray: [ProductItem] = []
             prodList.forEach({ (product) in
                 myProducts.forEach({ (myProd) in
-                    if myProd.name.lowercased().contains(product.description.lowercased()) {
+                    if myProd.name.lowercased().contains(product.description.lowercased()) && prodValues[cnt] <= myProd.getTempVolume() {
                         resultArray.append(myProd)
                     }
                 })
+                cnt = cnt + 1
             })
             let receiptDescr = ReceiptDescr(perc: (Double)(resultArray.count)/(Double)(prodList.count)*100,
                                             rec: receipt,

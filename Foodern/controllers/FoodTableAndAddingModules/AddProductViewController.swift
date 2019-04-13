@@ -99,6 +99,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             if let name = self.editingItem {
                 self.productImage.isHidden = false
                 self.productImage.image = DataManager.getImage(imageName: name.name)
+                self.imageOfProduct = DataManager.getImage(imageName: name.name)
             }
         }
         
@@ -106,6 +107,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         self.volumeTextField.delegate = self
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
         if let item = editingItem {
             self.nameTextField.text = self.editingItem?.name
             self.volumeTextField.text = self.editingItem?.tempVolume.description
@@ -202,7 +204,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                                  isLiquid: isLiq,
                                  isHaveW: isHaveW,
                                  isCountable: isCnt,
-                                 categories: categoriesPicked
+                                 categories: categoriesPicked,
+                                 initVol: (self.editingItem?.initalVolume ?? vol) > vol ?
+                                    self.editingItem?.initalVolume
+                                    : vol
         )
         
         if let removingItem = self.editingItem {
@@ -226,13 +231,18 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             })
             if duplicate.count == 0 {
                 realm.add(newProduct)
-                if let image = self.productImage.image {
+                if let image = self.imageOfProduct {
                     DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.name )
                 }
             }
-            else if duplicate.count == 1 {
-                newProduct.tempVolume += duplicate[0].tempVolume
-                self.realm.delete(duplicate[0])
+            else if duplicate.count >= 1 {
+                duplicate.forEach({ (dup) in
+                    newProduct.tempVolume += dup.tempVolume
+                })
+                if newProduct.initalVolume <= newProduct.tempVolume {
+                    newProduct.initalVolume = newProduct.tempVolume
+                }
+                self.realm.delete(duplicate)
                 self.realm.add(newProduct)
             }
         }
@@ -374,6 +384,7 @@ extension AddProductViewController: UINavigationControllerDelegate, UIImagePicke
         }
         
         self.imageOfProduct = image
+        self.productImage.image = image
         //dismiss(animated:true, completion: nil)
     }
     

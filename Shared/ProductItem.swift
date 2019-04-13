@@ -15,6 +15,7 @@ import UIKit
     @objc dynamic var name : String = "empty"
     
     @objc dynamic var tempVolume : Double = 1
+    @objc dynamic var initalVolume : Double = 1
     
     @objc dynamic var isLiquid = false
     @objc dynamic var isHaveWeight = false
@@ -22,7 +23,13 @@ import UIKit
     
     @objc dynamic var tempCategories : String = ""
     
-    func setProperties(name: String, tempVol : Double?, isLiquid : Bool?, isHaveW : Bool?, isCountable : Bool?, categories : [Category]?) {
+    func setProperties(name: String,
+                       tempVol : Double?,
+                       isLiquid : Bool?,
+                       isHaveW : Bool?,
+                       isCountable : Bool?,
+                       categories : [Category]?,
+                       initVol: Double?) {
         self.name = name
         if (tempVol != nil) {
             self.tempVolume = tempVol!
@@ -41,11 +48,17 @@ import UIKit
                 self.tempCategories.append("\(cat.stringName);")
             }
         }
+        if let vol = initVol {
+            self.initalVolume = vol
+        }
     }
     
+    func getTempOfInitial() -> Double {
+        return self.tempVolume/self.initalVolume * 100
+    }
     
     func getTempVolume() -> Double {
-        return tempVolume
+        return self.tempVolume
     }
     
     func getVolumeString() -> String {
@@ -77,15 +90,15 @@ import UIKit
         let kek7 = ProductItem()
         let kek8 = ProductItem()
         let kek9 = ProductItem()
-        kek2.setProperties(name: "Морковь", tempVol: 2.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek1.setProperties(name: "Картофель", tempVol: 3.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek3.setProperties(name: "Огурец", tempVol: 1.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek4.setProperties(name: "Куринное филе", tempVol: 1.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek5.setProperties(name: "Корнишон", tempVol: nil, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek6.setProperties(name: "Помидоры", tempVol: 16.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek7.setProperties(name: "Вода", tempVol: 87.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek8.setProperties(name: "Молоко", tempVol: 71.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
-        kek9.setProperties(name: "Сок яблочный", tempVol: 112.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil)
+        kek2.setProperties(name: "Морковь", tempVol: 2.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek1.setProperties(name: "Картофель", tempVol: 3.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek3.setProperties(name: "Огурец", tempVol: 1.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek4.setProperties(name: "Куринное филе", tempVol: 1.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek5.setProperties(name: "Корнишон", tempVol: nil, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek6.setProperties(name: "Помидоры", tempVol: 16.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek7.setProperties(name: "Вода", tempVol: 87.0, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek8.setProperties(name: "Молоко", tempVol: 71.1, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
+        kek9.setProperties(name: "Сок яблочный", tempVol: 112.2, isLiquid: nil, isHaveW: nil, isCountable: nil, categories: nil, initVol: 10)
         
         
         kek.append(kek1)
@@ -125,7 +138,6 @@ import UIKit
                 flights.append(ProductItem(dictionary: dict))
             })
         } catch let error as NSError {
-            print(error)
         }
 
 //        return flights
@@ -169,9 +181,10 @@ import UIKit
         let isLiquid = dictionary["isLiquid"]! as! Bool
         let isHaveWeight = dictionary["isHaveWeight"]! as! Bool
         let isCountable = dictionary["isCountable"]! as! Bool
+        let initVol = dictionary["initalVolume"] as! Double
         
         self.init()
-        self.setProperties(name: name, tempVol: tempVolume, isLiquid: isLiquid, isHaveW: isHaveWeight, isCountable: isCountable, categories: nil)
+        self.setProperties(name: name, tempVol: tempVolume, isLiquid: isLiquid, isHaveW: isHaveWeight, isCountable: isCountable, categories: nil, initVol: initVol)
         //self.setPro
     }
 

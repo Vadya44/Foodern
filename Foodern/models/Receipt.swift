@@ -15,11 +15,13 @@ import UIKit
     @objc dynamic var products : String = "empty"
     @objc dynamic var receipt : String = "empty"
     @objc dynamic var regexText: String = "empty"
-    
+    @objc dynamic var volumes: String = "empty"
+
     func setProperties(name: String,
                        prodList: [String],
                        receipttext: String,
-                       regex: String) {
+                       regex: String,
+                       volumes: String) {
         self.name = name
         var prodListString = ""
         prodList.forEach { (prod) in
@@ -28,6 +30,7 @@ import UIKit
         self.products = prodListString
         self.receipt = receipttext
         self.regexText = regex
+        self.volumes = volumes
     }
     
     func getProductsList() -> [String] {
@@ -36,6 +39,19 @@ import UIKit
             if prod.isEmpty {
                 if let index = result.firstIndex(of: prod) {
                     result.remove(at: index)
+                }
+            }
+        }
+        return result
+    }
+    
+    func getVolumesList() -> [Double] {
+        let res = self.volumes.components(separatedBy: ";")
+        var result: [Double] = []
+        res.forEach { (prod) in
+            if !prod.isEmpty {
+                if let doubleValue = Double(prod) {
+                    result.append(doubleValue)
                 }
             }
         }
@@ -64,10 +80,18 @@ import UIKit
                                       "сковорода"]
             let receiptText = "кекус"
             let regex = "яйц;масл;сковор"
+            let volumes = [100,
+                           150,
+                           1000]
+            var volumesString: String = ""
+            volumes.forEach { vol in
+                volumesString.append("\(vol);")
+            }
             receipt.setProperties(name: "Яичница",
                                   prodList: prodList,
                                   receipttext: receiptText,
-                                  regex: regex)
+                                  regex: regex,
+                                  volumes: volumesString)
             try! realm.write {
                 realm.add(receipt)
             }

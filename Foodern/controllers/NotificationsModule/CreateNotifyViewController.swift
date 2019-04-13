@@ -140,7 +140,7 @@ class CreateNotifyViewController: UIViewController, UITextViewDelegate {
             
             if (error != nil){
                 
-                print(error?.localizedDescription as Any )
+                
             }
         }
         

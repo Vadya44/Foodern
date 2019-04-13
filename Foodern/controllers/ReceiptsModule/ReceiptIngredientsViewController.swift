@@ -65,7 +65,7 @@ extension ReceiptIngredientsViewController: UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngridientTableViewCell", for: indexPath) as! IngridientTableViewCell
-        cell.configure(with: self.receiptProductsList[indexPath.row], product: self.myProdsForReceipts[indexPath.row])
+        cell.configure(with: self.receiptProductsList[indexPath.row], product: self.myProdsForReceipts[indexPath.row], vol: self.receipt?.receipt.getVolumesList()[indexPath.row] ?? 0)
         return cell
     }
     
