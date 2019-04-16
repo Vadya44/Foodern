@@ -197,11 +197,6 @@ private extension UIStoryboard {
 private extension ContainerViewController {
     private static func createCategories() {
         let realm = try! Realm()
-        try! realm.write {
-            realm.delete(realm.objects(Category.self))
-        }
-        
-        
         
         if (realm.objects(Category.self).count == 0) {
             let fridge = Category()

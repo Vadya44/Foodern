@@ -33,6 +33,8 @@
 		1546BE3821AC8A4E0069C154 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */; };
 		154789B822591110007E0A5B /* UIColor+ColorByPercentage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154789B722591110007E0A5B /* UIColor+ColorByPercentage.swift */; };
 		1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */; };
+		15577CB622665765001A8CB8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15577CB522665765001A8CB8 /* CategoriesViewController.swift */; };
+		15577CB822665A73001A8CB8 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15577CB722665A73001A8CB8 /* CategoryTableViewCell.swift */; };
 		15649D30223E4E6700269540 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15649D2F223E4E6700269540 /* Assets.xcassets */; };
 		15649D37223E4E6700269540 /* FoodernWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 15649D36223E4E6700269540 /* FoodernWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		15649D3C223E4E6700269540 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15649D3B223E4E6700269540 /* InterfaceController.swift */; };
@@ -142,6 +144,8 @@
 		1546BE3721AC8A4E0069C154 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		154789B722591110007E0A5B /* UIColor+ColorByPercentage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ColorByPercentage.swift"; sourceTree = "<group>"; };
 		1549EDE221B047DE00E8B8AC /* CategoryPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerCell.swift; sourceTree = "<group>"; };
+		15577CB522665765001A8CB8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		15577CB722665A73001A8CB8 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		15649D2A223E4E6500269540 /* FoodernWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodernWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15649D2F223E4E6700269540 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15649D31223E4E6700269540 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -326,9 +330,19 @@
 			path = FoodTableAndAddingModules;
 			sourceTree = "<group>";
 		};
+		15577CB422665748001A8CB8 /* CategoriesModule */ = {
+			isa = PBXGroup;
+			children = (
+				15577CB522665765001A8CB8 /* CategoriesViewController.swift */,
+				15577CB722665A73001A8CB8 /* CategoryTableViewCell.swift */,
+			);
+			path = CategoriesModule;
+			sourceTree = "<group>";
+		};
 		15584AB221B7458100F2E95B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				15577CB422665748001A8CB8 /* CategoriesModule */,
 				154789B4225903C8007E0A5B /* NotificationsModule */,
 				154789B5225903E6007E0A5B /* SideMenuModule */,
 				154789B622590409007E0A5B /* FoodTableAndAddingModules */,
@@ -679,6 +693,7 @@
 				152D511321A706F8002CBBD3 /* SideItemCell.swift in Sources */,
 				15759D9621AEFCBF009B57A5 /* ProductItemCell.swift in Sources */,
 				15961D1921B2FD72006BDD79 /* VariablePickerViewController.swift in Sources */,
+				15577CB622665765001A8CB8 /* CategoriesViewController.swift in Sources */,
 				156EECAE21B43C41006B8910 /* CategoriesTableViewCell.swift in Sources */,
 				157A8373225D22FF009771FE /* ImageViewController.swift in Sources */,
 				152D510F21A70314002CBBD3 /* ContrainerViewController.swift in Sources */,
@@ -694,6 +709,7 @@
 				152D510B21A702C1002CBBD3 /* SidePanelViewControllerDelegate.swift in Sources */,
 				15759D9421AEFB42009B57A5 /* Category.swift in Sources */,
 				1549EDE321B047DE00E8B8AC /* CategoryPickerCell.swift in Sources */,
+				15577CB822665A73001A8CB8 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

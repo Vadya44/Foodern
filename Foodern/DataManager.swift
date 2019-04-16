@@ -62,7 +62,7 @@ class DataManager {
         let imagePath = (DataManager.getDirectoryPath() as NSString).appendingPathComponent("image\(imageName)")
         if fileManager.fileExists(atPath: imagePath){
             try! fileManager.removeItem(atPath: imagePath)
-        }else{
+        } else {
             print("Directory not found")
         }
     }

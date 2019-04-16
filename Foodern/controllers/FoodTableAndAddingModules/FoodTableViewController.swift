@@ -164,13 +164,20 @@ extension FoodTableViewController : SidePanelViewControllerDelegate {
             
         }
         if number == 3 {
-            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesViewController") as? CategoriesViewController
             {
                 self.present(vc, animated: true, completion: nil)
             }
             
         }
         if number == 4 {
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutAppViewController") as? AboutAppViewController
+            {
+                self.present(vc, animated: true, completion: nil)
+            }
+            
+        }
+        if number == 5 {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "QRCodeScannerViewController") as? QRCodeScannerViewController
             {
                 self.present(vc, animated: true, completion: nil)

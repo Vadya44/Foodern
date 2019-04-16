@@ -21,7 +21,10 @@ class QRCodeScannerViewController : UIViewController {
     
     @IBOutlet var messageLabel:UILabel!
     @IBOutlet var topbar: UIView!
-
+    @IBOutlet weak var sourceButton: UIButton!
+    
+    var useSecondApi = false
+    
     var state: QRState = .editing
     
     var vSpiner: UIView?
@@ -161,6 +164,16 @@ class QRCodeScannerViewController : UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func changeSourceButtonClicked(_ sender: Any) {
+        if useSecondApi {
+            self.useSecondApi = false
+            self.sourceButton.setTitle("1st API", for: .normal)
+        } else {
+            self.useSecondApi = true
+            self.sourceButton.setTitle("2nd API", for: .normal)
+
+        }
+    }
 }
 
 extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
@@ -185,7 +198,11 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
                 captureSession.stopRunning()
                 
                 self.showSpinner(onView: self.view)
-                self.postRequest(data: metadataObj.stringValue!)
+                if self.useSecondApi {
+                    self.postRequest(data: metadataObj.stringValue!)
+                } else {
+                    self.getRequest(str: metadataObj.stringValue!)
+                }
                 self.state = .editing
                 //self.presentTableView()
                 
@@ -193,28 +210,28 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
             }
         }
     }
-//    func presentTableView() {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewItemsEditingViewController") as! NewItemsEditingViewController
-//
-//        var kek: [ProductItem] = []
-//
-//        let kek12 = ProductItem()
-//        let kek11 = ProductItem()
-//        let kek13 = ProductItem()
-//        kek12.setProperties(name: "kek11", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-//        kek13.а(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-//        kek11.setProperties(name: "kek13", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
-//
-//        kek.append(kek12)
-//        kek.append(kek11)
-//        kek.append(kek13)
-//
-//        newViewController.dataSource = kek
-//        self.removeSpinner()
-//
-//        self.present(newViewController, animated: true, completion: nil)
-//    }
+    //    func presentTableView() {
+    //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    //        let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewItemsEditingViewController") as! NewItemsEditingViewController
+    //
+    //        var kek: [ProductItem] = []
+    //
+    //        let kek12 = ProductItem()
+    //        let kek11 = ProductItem()
+    //        let kek13 = ProductItem()
+    //        kek12.setProperties(name: "kek11", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+    //        kek13.а(name: "kek12", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+    //        kek11.setProperties(name: "kek13", tempVol: nil, fullVolume: nil, isLiquid: nil, isHaveW: nil, tempCapacity: nil, isCountable: nil, tempC: nil, fullC: nil, categories: nil)
+    //
+    //        kek.append(kek12)
+    //        kek.append(kek11)
+    //        kek.append(kek13)
+    //
+    //        newViewController.dataSource = kek
+    //        self.removeSpinner()
+    //
+    //        self.present(newViewController, animated: true, completion: nil)
+    //    }
     func showSpinner(onView : UIView) {
         let spinnerView = UIView.init(frame: onView.bounds)
         spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
@@ -237,46 +254,29 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
         }
     }
     
-    func postRequest(data: String) {
-        let url = "https://get-ofz-json-from-qr.enzolab.ru/"
+    func getRequest(str: String) {
+        let url = "https://qrtests.herokuapp.com/receipts/get?\(str)"
         
-        let headers = [
-            "Content-Type" : "application/x-www-form-urlencoded"
-        ]
-        
-        let parameters = [
-            "qr": data
-        ]
-        
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default,
-                          headers: headers).responseString { response in
+        Alamofire.request(url, method: .get, encoding: URLEncoding.default).responseString { response in
             switch response.result {
             case .success:
                 if let value = response.result.value {
                     var items: [ProductItem] = []
-                    let regex = try! NSRegularExpression(pattern: "class=\"fsz-13\" id=\"myTextArea\">.*textarea")
-                    let regexRes = regex.firstMatch(in: value,
-                                                    options: [],
-                                                    range: NSRange(location: 0, length: value.utf16.count))
-                    var res = String(value[Range(regexRes!.range, in: value)!])
-                    res.removeFirst(31)
-                    res.removeLast(10)
-                    if let data = res.data(using: .utf8) {
+                    if let data = value.data(using: .utf8) {
                         do {
                             let serialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-                            if let products = serialized!["document"] as? NSDictionary{
-                                if let kek = products["receipt"] as? NSDictionary {
-                                    if let products = kek["items"] as? NSArray {
-                                        for prod in products {
-                                            let tempProduct = prod as! NSDictionary
-                                            let strName = tempProduct["name"] as! String
-                                            let strQuanity = tempProduct["quantity"] as! Int64
-                                            let nameStr = String(utf8String: strName.cString(using: .utf8)!)
-                                            let newProduct = ProductItem()
-                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: Double(strQuanity))
-                                            items.append(newProduct)
-                                        }
-                                    }
+                            
+                            if let products = serialized!["items"] as? NSArray {
+                                for prod in products {
+                                    let tempProduct = prod as! NSDictionary
+                                    let strName = tempProduct["name"] as! String
+                                    let strQuanity = tempProduct["quantity"] as! Int64
+                                    let nameStr = String(utf8String: strName.cString(using: .utf8)!)
+                                    let newProduct = ProductItem()
+                                    newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: Double(strQuanity))
+                                    items.append(newProduct)
+                                    
+                                    
                                 }
                             }
                         } catch {
@@ -315,15 +315,104 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
                     switch action.style{
                     case .default:
-                        self.dismiss(animated: true, completion: nil)
+                        break
                     case .cancel:
-                        self.dismiss(animated: true, completion: nil)
-                        
+                        break
                     case .destructive:
                         self.dismiss(animated: true, completion: nil)
                     }}))
                 self.present(alert, animated: true, completion: nil)
             }
+        }
+    }
+    
+    func postRequest(data: String) {
+        let url = "https://get-ofz-json-from-qr.enzolab.ru/"
+        
+        let headers = [
+            "Content-Type" : "application/x-www-form-urlencoded"
+        ]
+        
+        let parameters = [
+            "qr": data
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.default,
+                          headers: headers).responseString { response in
+                            switch response.result {
+                            case .success:
+                                if let value = response.result.value {
+                                    var items: [ProductItem] = []
+                                    let regex = try! NSRegularExpression(pattern: "class=\"fsz-13\" id=\"myTextArea\">.*textarea")
+                                    let regexRes = regex.firstMatch(in: value,
+                                                                    options: [],
+                                                                    range: NSRange(location: 0, length: value.utf16.count))
+                                    var res = String(value[Range(regexRes!.range, in: value)!])
+                                    res.removeFirst(31)
+                                    res.removeLast(10)
+                                    if let data = res.data(using: .utf8) {
+                                        do {
+                                            let serialized = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                                            if let products = serialized!["document"] as? NSDictionary{
+                                                if let kek = products["receipt"] as? NSDictionary {
+                                                    if let products = kek["items"] as? NSArray {
+                                                        for prod in products {
+                                                            let tempProduct = prod as! NSDictionary
+                                                            let strName = tempProduct["name"] as! String
+                                                            let strQuanity = tempProduct["quantity"] as! Int64
+                                                            let nameStr = String(utf8String: strName.cString(using: .utf8)!)
+                                                            let newProduct = ProductItem()
+                                                            newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: Double(strQuanity))
+                                                            items.append(newProduct)
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        } catch {
+                                            let alert = UIAlertController(title: "Failed",
+                                                                          message: "Data not found. Maybe check is old",
+                                                                          preferredStyle: .alert)
+                                            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                                                switch action.style{
+                                                case .default:
+                                                    self.dismiss(animated: true, completion: nil)
+                                                case .cancel:
+                                                    self.dismiss(animated: true, completion: nil)
+                                                    
+                                                case .destructive:
+                                                    self.dismiss(animated: true, completion: nil)
+                                                }}))
+                                            self.present(alert, animated: true, completion: nil)
+                                        }
+                                    }
+                                    
+                                    
+                                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "NewItemsEditingViewController") as! NewItemsEditingViewController
+                                    newViewController.dataSource = items
+                                    
+                                    self.state = .outVC
+                                    self.removeSpinner()
+                                    
+                                    self.present(newViewController, animated: true, completion: nil)
+                                }
+                            case .failure(let error):
+                                print(error)
+                                let alert = UIAlertController(title: "Failed",
+                                                              message: "Data not found. Maybe check is old",
+                                                              preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                                    switch action.style{
+                                    case .default:
+                                        self.dismiss(animated: true, completion: nil)
+                                    case .cancel:
+                                        self.dismiss(animated: true, completion: nil)
+                                        
+                                    case .destructive:
+                                        self.dismiss(animated: true, completion: nil)
+                                    }}))
+                                self.present(alert, animated: true, completion: nil)
+                            }
         }
     }
 }
