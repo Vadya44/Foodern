@@ -20,13 +20,22 @@ class FoodTableViewController: UIViewController {
     var isUsual = true
     
     let results = try! Realm().objects(ProductItem.self)
-    let pickedResults = try! Realm().objects(Category.self)
+    var pickedResults = try! Realm().objects(Category.self)
     
     var notificationToken: NotificationToken?
     var searchText : String = ""
     var pickedCategories : [Bool] = []
     
     var delegate : FoodTableViewControllerDelegate?
+    
+    public func checkRefresh() {
+        if self.pickedCategories.count != self.pickedResults.count {
+            self.pickedCategories.removeAll()
+            pickedResults.forEach { (_) in
+                pickedCategories.append(true)
+            }
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -39,7 +48,9 @@ class FoodTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for _ in 0...self.pickedResults.count - 1 {
+        
+        self.pickedCategories.removeAll()
+        pickedResults.forEach { (_) in
             pickedCategories.append(true)
         }
         
@@ -54,8 +65,9 @@ class FoodTableViewController: UIViewController {
                 break
             case .update(_, _, _, _):
                 // Query results have changed, so apply them to the TableView
+                self.checkRefresh()
                 self.pickedCategories.removeAll()
-                for _ in 0...self.pickedResults.count - 1 {
+                self.pickedResults.forEach { (_) in
                     self.pickedCategories.append(true)
                 }
                 self.sortResults()
@@ -166,6 +178,7 @@ extension FoodTableViewController : SidePanelViewControllerDelegate {
         if number == 3 {
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CategoriesViewController") as? CategoriesViewController
             {
+                vc.initVC(vc: self)
                 self.present(vc, animated: true, completion: nil)
             }
             
@@ -207,6 +220,7 @@ extension FoodTableViewController {
     }
     
     func sortResults() {
+        pickedResults = try! Realm().objects(Category.self)
         
         self.filteredResults = Array(results)
         if !isUsual {
@@ -218,12 +232,13 @@ extension FoodTableViewController {
         }
         
         var picked = [Category]()
-        for i in 0...pickedCategories.count - 1 {
-            if (pickedCategories[i]) {
-                picked.append(pickedResults[i])
+        if pickedCategories.count >= 1 {
+            for i in 0...pickedCategories.count - 1 {
+                if (pickedCategories[i]) {
+                    picked.append(pickedResults[i])
+                }
             }
         }
-        
         
         
         

@@ -19,6 +19,7 @@ class CategoriesViewController: UIViewController {
     var categoryList: [Category] = []
     var blurEffectView: UIView!
     let realm = try! Realm()
+    public var vc: FoodTableViewController!
     
     private func refreshTableView() {
         categoryList = Array(self.realm.objects(Category.self))
@@ -35,6 +36,7 @@ class CategoriesViewController: UIViewController {
         super.viewDidAppear(true)
         self.refreshTableView()
     }
+    
 
     @IBAction func newCatButtonClicked(_ sender: Any) {
         if let text = self.newCategoryTextField.text {
@@ -43,6 +45,7 @@ class CategoriesViewController: UIViewController {
                 category.stringName = text
                 try! self.realm.write {
                     self.realm.add(category)
+                    self.vc.checkRefresh()
                 }
             }
         }
@@ -50,6 +53,10 @@ class CategoriesViewController: UIViewController {
         self.blurEffectView.removeFromSuperview()
         self.newCategoryView.removeFromSuperview()
         self.refreshTableView()
+    }
+    
+    public func initVC(vc: FoodTableViewController) {
+        self.vc = vc
     }
     
     @IBAction func newCatCancelButtonClicked(_ sender: Any) {
@@ -82,6 +89,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             try! self.realm.write {
                 self.realm.delete(self.categoryList[indexPath.row])
+                self.vc.checkRefresh()
             }
             //tableView.deleteRows(at: [indexPath], with: .fade)
         }
