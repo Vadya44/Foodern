@@ -33,7 +33,7 @@ class DataManager {
         DataManager.deleteDirectory(imageName: name)
         let fileManager = FileManager.default
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("image\(name)")
-        let imageData = image.jpegData(compressionQuality: 0.5)
+        let imageData = image.pngData()
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
     }
     

@@ -243,7 +243,7 @@
 				152D50FA21A6FC9F002CBBD3 /* Main.storyboard */,
 				152D50FF21A6FCA1002CBBD3 /* LaunchScreen.storyboard */,
 				152D510221A6FCA1002CBBD3 /* Info.plist */,
-				15584AB221B7458100F2E95B /* controllers */,
+				15584AB221B7458100F2E95B /* modules */,
 				15584AB421B745D000F2E95B /* resources */,
 				15A9F0E521A99C84001E0503 /* views */,
 				15584AB521B745E100F2E95B /* models */,
@@ -339,7 +339,7 @@
 			path = CategoriesModule;
 			sourceTree = "<group>";
 		};
-		15584AB221B7458100F2E95B /* controllers */ = {
+		15584AB221B7458100F2E95B /* modules */ = {
 			isa = PBXGroup;
 			children = (
 				15577CB422665748001A8CB8 /* CategoriesModule */,
@@ -350,7 +350,7 @@
 				154789B222590397007E0A5B /* ReceiptsModule */,
 				15B5F7EE2247A62800BDF4A9 /* AboutAppViewController.swift */,
 			);
-			path = controllers;
+			path = modules;
 			sourceTree = "<group>";
 		};
 		15584AB421B745D000F2E95B /* resources */ = {

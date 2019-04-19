@@ -20,15 +20,15 @@ class ReceiptIngredientsViewController: UIViewController {
         super.viewDidLoad()
         self.receiptProductsList = receipt!.receipt.getProductsList()
         var i = 0
-        self.receiptProductsList.forEach { (prodFromRec) in
+        self.receipt?.receipt.getRegexesList().forEach { (prodFromRec) in
             self.myProdsForReceipts.append(nil)
             receipt?.productItems.forEach({ (myItem) in
                 if myItem.name.lowercased().contains(prodFromRec.description.lowercased()) {
                     self.myProdsForReceipts[i] = myItem
-                    i = i + 1
                 } else {
                 }
             })
+            i = i + 1
         }
         
         self.tableView.delegate = self

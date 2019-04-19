@@ -58,6 +58,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
+        
         guard let image = self.imageOfProduct else { return }
         self.productImage.isHidden = false
         self.productImage.image = image
@@ -140,7 +142,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             else {
                 self.tempNumberOfVariable = 3
             }
-            self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
         }
     }
     
