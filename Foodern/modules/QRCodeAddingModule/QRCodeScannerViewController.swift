@@ -268,17 +268,18 @@ extension QRCodeScannerViewController : AVCaptureMetadataOutputObjectsDelegate {
                             
                             if let products = serialized!["items"] as? NSArray {
                                 for prod in products {
-                                    let tempProduct = prod as! NSDictionary
-                                    let strName = tempProduct["name"] as! String
-                                    let strQuanity = tempProduct["quantity"] as! Int64
+                                    if let tempProduct = prod as? NSDictionary ,
+                                        let strName = tempProduct["name"] as? String,
+                                        let strQuanity = tempProduct["quantity"] as? Double
+                                    {
                                     let nameStr = String(utf8String: strName.cString(using: .utf8)!)
                                     let newProduct = ProductItem()
-                                    newProduct.setProperties(name: nameStr!, tempVol: Double(strQuanity), isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: Double(strQuanity))
+                                    newProduct.setProperties(name: nameStr!, tempVol: strQuanity, isLiquid: false, isHaveW: false, isCountable: false, categories: nil, initVol: strQuanity)
                                     items.append(newProduct)
-                                    
                                     
                                 }
                             }
+                        }
                         } catch {
                             let alert = UIAlertController(title: "Failed",
                                                           message: "Data not found. Maybe check is old",
