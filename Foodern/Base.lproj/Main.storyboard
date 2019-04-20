@@ -751,8 +751,8 @@
                             <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b4A-z5-53V">
                                 <rect key="frame" x="0.0" y="44" width="375" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-ep-I9r">
-                                        <rect key="frame" x="165.66666666666666" y="10" width="44" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сканировать чек" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zab-ep-I9r">
+                                        <rect key="frame" x="110.00000000000001" y="10" width="155.33333333333337" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -766,8 +766,10 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mis-pP-86q">
                                         <rect key="frame" x="313" y="10" width="47" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="1st API">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="changeSourceButtonClicked:" destination="gfb-Eh-F8J" eventType="touchUpInside" id="AbL-jd-6oH"/>
@@ -825,7 +827,7 @@
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvk-LO-gM5">
                                 <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                                 <items>
-                                    <navigationItem title="Тут нейм еды" id="er6-Je-IgU">
+                                    <navigationItem id="er6-Je-IgU">
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="lYK-4d-78H">
                                             <connections>
                                                 <action selector="cancelButtonClicked:" destination="vrY-t0-7Xi" id="8o6-19-CIW"/>
@@ -916,7 +918,7 @@
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wVX-jb-aPR">
                                 <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                                 <items>
-                                    <navigationItem title="Cheburek" largeTitleDisplayMode="always" id="WIQ-Nc-VvN">
+                                    <navigationItem largeTitleDisplayMode="always" id="WIQ-Nc-VvN">
                                         <barButtonItem key="leftBarButtonItem" title="Назад" id="QIW-sY-mRk">
                                             <connections>
                                                 <action selector="cancelButtonClicked:" destination="1DZ-n2-Fyk" id="rq7-Uw-NVd"/>
@@ -969,7 +971,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Рецепты" id="25C-ON-i3D">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="fRH-XO-c1U">
+                                        <barButtonItem key="leftBarButtonItem" title="Назад" id="fRH-XO-c1U">
                                             <connections>
                                                 <action selector="cancelButtonClicked:" destination="o5j-De-GQZ" id="ShY-VR-9dI"/>
                                             </connections>
@@ -1077,7 +1079,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                                 <items>
                                     <navigationItem title="Напоминания" id="JTF-lK-ruh">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="dmv-3r-njg">
+                                        <barButtonItem key="leftBarButtonItem" title="Назад" id="dmv-3r-njg">
                                             <connections>
                                                 <action selector="dimissVCBtnClicked:" destination="xbf-b2-xEe" id="GQd-S5-U6M"/>
                                             </connections>
@@ -1085,7 +1087,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" text="картошка морковка" translatesAutoresizingMaskIntoConstraints="NO" id="jl8-hT-uuO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" text="Купить: " translatesAutoresizingMaskIntoConstraints="NO" id="jl8-hT-uuO">
                                 <rect key="frame" x="10" y="150" width="355" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1107,7 +1109,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pm3-c4-Rbx">
                                 <rect key="frame" x="16" y="253" width="343" height="30"/>
-                                <state key="normal" title="na 02.01.2019 12.051">
+                                <state key="normal" title="на 02.01.2019 12.051">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1252,7 +1254,7 @@
                                     <color key="textShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Foodern application" id="GXq-r4-G8H">
+                                    <navigationItem title="Foodern" id="GXq-r4-G8H">
                                         <barButtonItem key="leftBarButtonItem" style="plain" systemItem="stop" id="lHv-t9-u51">
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
@@ -1262,8 +1264,8 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This application helps user managing food." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-0C-r3M">
-                                <rect key="frame" x="26" y="150" width="323" height="45.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Данное приложение было разработано в рамках курсовой работы студентом НИУ ВШЭ." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug3-0C-r3M">
+                                <rect key="frame" x="26" y="150" width="323" height="68.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1304,13 +1306,13 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Add products" id="rSE-rr-bv4">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="46L-vI-cHC">
+                                    <navigationItem id="rSE-rr-bv4">
+                                        <barButtonItem key="leftBarButtonItem" title="Назад" id="46L-vI-cHC">
                                             <connections>
                                                 <action selector="didCancelButtonTapped:" destination="1sU-9q-zoP" id="XCv-KC-nCA"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save all" id="SdS-hR-OCs">
+                                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="SdS-hR-OCs">
                                             <connections>
                                                 <action selector="didSaveAllButtonTapped:" destination="1sU-9q-zoP" id="Xus-aG-vxe"/>
                                             </connections>
@@ -1333,16 +1335,16 @@
                                                     <rect key="frame" x="10" y="10" width="355" height="54.666666666666657"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" horizontalCompressionResistancePriority="250" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dTU-yN-h6j">
-                                                            <rect key="frame" x="0.0" y="0.0" width="239.33333333333334" height="54.666666666666664"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="259" height="54.666666666666664"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Морковь красная тырыпарыъ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVZ-GQ-5EV">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="239.33333333333334" height="34"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="259" height="34"/>
                                                                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20.3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lH-Ug-Snd">
-                                                                    <rect key="frame" x="0.0" y="39" width="239.33333333333334" height="15.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="39" width="259" height="15.666666666666664"/>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

@@ -16,6 +16,7 @@ import UIKit
     
     @objc dynamic var tempVolume : Double = 1
     @objc dynamic var initalVolume : Double = 1
+    @objc dynamic var id: Int = 0
     
     @objc dynamic var isLiquid = false
     @objc dynamic var isHaveWeight = false
@@ -29,7 +30,8 @@ import UIKit
                        isHaveW : Bool?,
                        isCountable : Bool?,
                        categories : [Category]?,
-                       initVol: Double?) {
+                       initVol: Double?,
+                       id: Int = 0) {
         self.name = name
         if (tempVol != nil) {
             self.tempVolume = tempVol!
@@ -51,6 +53,7 @@ import UIKit
         if let vol = initVol {
             self.initalVolume = vol
         }
+        self.id = id 
     }
     
     func getTempOfInitial() -> Double {
@@ -137,7 +140,7 @@ import UIKit
             json.forEach({ (dict: [String: Any]) in
                 flights.append(ProductItem(dictionary: dict))
             })
-        } catch let error as NSError {
+        } catch _ as NSError {
         }
 
 //        return flights

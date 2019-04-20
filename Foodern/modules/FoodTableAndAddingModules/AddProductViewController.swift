@@ -98,10 +98,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         }
         
         if (self.currentState == .editing) {
-            if let name = self.editingItem {
+            if let item = self.editingItem {
                 self.productImage.isHidden = false
-                self.productImage.image = DataManager.getImage(imageName: name.name)
-                self.imageOfProduct = DataManager.getImage(imageName: name.name)
+                self.productImage.image = DataManager.getImage(imageName: item.id.description)
+                self.imageOfProduct = DataManager.getImage(imageName: item.id.description)
             }
         }
         
@@ -208,16 +208,16 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                                  categories: categoriesPicked,
                                  initVol: (self.editingItem?.initalVolume ?? vol) > vol ?
                                     self.editingItem?.initalVolume
-                                    : vol
+                                    : vol,
+                                 id: (editingItem ?? newProduct).hash
         )
+        
         
         if let removingItem = self.editingItem {
             let removing = self.realm.objects(ProductItem.self).filter("name = '\(removingItem.name)'")
-            if let name = self.editingItem?.name {
-                DataManager.deleteDirectory(imageName: name)
-            }
             try! self.realm.write {
                 if removing.count > 0 {
+                    DataManager.deleteDirectory(imageName: self.editingItem!.hash.description)
                     self.realm.delete(removing)
                 }
             }
@@ -232,9 +232,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             })
             if duplicate.count == 0 {
                 realm.add(newProduct)
-                if let image = self.imageOfProduct {
-                    DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.name )
-                }
             }
             else if duplicate.count >= 1 {
                 duplicate.forEach({ (dup) in
@@ -246,6 +243,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                 self.realm.delete(duplicate)
                 self.realm.add(newProduct)
             }
+        }
+        
+        if let image = self.imageOfProduct {
+            DataManager.saveImageToDocumentDirectory(image: image, name: newProduct.id.description)
         }
         
         if (self.parentVC != nil) && currentState == .editingNew {
