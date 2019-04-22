@@ -182,7 +182,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="di5-Nv-KPy">
                                                             <rect key="frame" x="5" y="5" width="355" height="70"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-SA-BpQ">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="nVE-SA-BpQ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="70" id="WdQ-LN-GqP"/>
@@ -995,20 +995,20 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Лазанья по морфолтски и чебурешек" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvW-Wl-XSA">
                                                             <rect key="frame" x="5" y="10" width="300" height="40.666666666666664"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="всего хватает" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4g-Vu-RaE">
-                                                            <rect key="frame" x="5" y="60.666666666666664" width="300" height="66.333333333333343"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                                                            <rect key="frame" x="5" y="60.666666666666657" width="300" height="56.333333333333343"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="S4g-Vu-RaE" secondAttribute="bottom" constant="5" id="5Mi-M0-cvT"/>
+                                                        <constraint firstAttribute="bottom" secondItem="S4g-Vu-RaE" secondAttribute="bottom" constant="15" id="5Mi-M0-cvT"/>
                                                         <constraint firstAttribute="trailing" secondItem="S4g-Vu-RaE" secondAttribute="trailing" constant="5" id="KeF-EY-lu9"/>
                                                         <constraint firstItem="dvW-Wl-XSA" firstAttribute="top" secondItem="AfF-Ud-Myh" secondAttribute="top" constant="10" id="Nrp-eq-gEA"/>
                                                         <constraint firstAttribute="trailing" secondItem="dvW-Wl-XSA" secondAttribute="trailing" constant="5" id="Rtv-14-Lbc"/>
@@ -1087,7 +1087,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" text="Купить: " translatesAutoresizingMaskIntoConstraints="NO" id="jl8-hT-uuO">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Купить: " translatesAutoresizingMaskIntoConstraints="NO" id="jl8-hT-uuO">
                                 <rect key="frame" x="10" y="150" width="355" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1097,7 +1097,7 @@
                                 </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Jh-ps-zlI">
                                 <rect key="frame" x="94" y="220" width="187" height="33"/>

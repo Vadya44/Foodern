@@ -21,7 +21,7 @@ class ReceiptTableViewCell: UITableViewCell {
     public func configure(recDescr: ReceiptDescr) {
         self.receiptDescr = recDescr
         self.receiptName.text = self.receiptDescr?.receipt.name
-        self.percentageLabel.text = "Количество имеющихся ингридиентов: \((self.receiptDescr?.productItems.count ?? 0).description) из \((self.receiptDescr?.receipt.getProductsList().count ?? 0).description)"
+        self.percentageLabel.text = "Количество имеющихся ингредиентов: \((self.receiptDescr?.productItems.count ?? 0).description) из \((self.receiptDescr?.receipt.getProductsList().count ?? 0).description)"
         //self.percentageLabel.textColor = UIColor.takeColorByPercentage(percetange: CGFloat(self.receiptDescr!.percentage))
     }
 

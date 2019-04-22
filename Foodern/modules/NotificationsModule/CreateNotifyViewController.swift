@@ -36,6 +36,8 @@ class CreateNotifyViewController: UIViewController, UITextViewDelegate {
         self.reloadData()
         cnt = notifys.count
         
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH.mm"
         let text = formatter.string(from: datePicker.date)
@@ -205,6 +207,7 @@ extension CreateNotifyViewController: UNUserNotificationCenterDelegate {
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        self.view.endEditing(true)
         return true
     }
     

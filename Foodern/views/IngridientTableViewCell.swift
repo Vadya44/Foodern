@@ -33,7 +33,7 @@ class IngridientTableViewCell: UITableViewCell {
         if let myProd = product {
             self.vol = "\(myProd.name) \(myProd.getVolumeString())"
         } else {
-            self.vol = "Ингридиентов недостаточно"
+            self.vol = "Ингредиентов недостаточно"
         }
         self.ingrName = ingridientName
         

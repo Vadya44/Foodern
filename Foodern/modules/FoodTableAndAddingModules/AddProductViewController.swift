@@ -44,6 +44,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func choosingButtonClicked(_ sender: Any) {
+        self.view.endEditing(true)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "VariablePickerViewController") as! VariablePickerViewController
         newViewController.delegate = self
@@ -131,10 +132,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                 }
             }
             if (self.editingItem?.isLiquid ?? false) {
-                self.tempNumberOfVariable = 0
+                self.tempNumberOfVariable = 1
             } else if (self.editingItem?.isHaveWeight ?? false)
             {
-                self.tempNumberOfVariable = 1
+                self.tempNumberOfVariable = 0
             } else if (self.editingItem?.isCountable ?? false)
             {
                 self.tempNumberOfVariable = 2
@@ -142,12 +143,12 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             else {
                 self.tempNumberOfVariable = 3
             }
+            self.choosingButton.titleLabel?.text = variablesForPick[tempNumberOfVariable]
         }
     }
     
     @IBAction func nameTFReturn(_ sender: Any) {
-        nameTextField.resignFirstResponder()
-        volumeTextField.becomeFirstResponder()
+        self.view.endEditing(true)
     }
     
     @IBAction func volumeTFReturn(_ sender: Any) {
@@ -170,9 +171,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
         var isHaveW = false
         var isCnt = false
         
-        if (0  == tempNumberOfVariable) {
+        if (1  == tempNumberOfVariable) {
             isLiq = true
-        } else if (1  == tempNumberOfVariable)
+        } else if (0  == tempNumberOfVariable)
         {
             isHaveW = true
         } else if (2 == tempNumberOfVariable)
@@ -271,9 +272,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func removeButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: self.nameTextField.text,
-                                      message: "Are you sure remove this product?",
+                                      message: "Удалить продукт?",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Удалить", style: .default, handler: { action in
             switch action.style{
             case .default:
                 if let removingItem = self.editingItem {
@@ -292,7 +293,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             case .destructive:
                 print("destructive")
             }}))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: { action in
             switch action.style{
             case .default:
                 print("canceled")
@@ -314,23 +315,23 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
 //
 //        present(kek, animated: true, completion: nil)
         let alert = UIAlertController(title: self.nameTextField.text,
-                                      message: "Where to get image?",
+                                      message: "Откуда добавить фотографии?",
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { action in
             switch action.style{
             case .default:
                 if(UIImagePickerController .isSourceTypeAvailable(.camera)){
                     imagePickerController.sourceType = .camera
                     self.present(imagePickerController, animated: true, completion: nil)
                 } else {
-                    let alertWarning = UIAlertView(title:"Warning", message: "You don't have camera or permissions", delegate:nil, cancelButtonTitle:"OK")
+                    let alertWarning = UIAlertView(title:"Ошибка", message: "Нет доступа к камере. Предоставьте доступ к камере в настройках устройства.", delegate:nil, cancelButtonTitle:"Закрыть")
                     alertWarning.show()
                 }
                 
             case .cancel: break
             case .destructive: break
             }}))
-        alert.addAction(UIAlertAction(title: "Library", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Мои Фото", style: .default, handler: { action in
             switch action.style{
             case .default:
                 imagePickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
@@ -341,7 +342,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
             case .cancel: break
             case .destructive: break
             }}))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Отмена", style: .default, handler: { action in
             switch action.style{
             case .default:
                 alert.dismiss(animated: true, completion: nil)

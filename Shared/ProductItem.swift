@@ -66,7 +66,7 @@ import UIKit
     
     func getVolumeString() -> String {
         if (isLiquid) {
-            return "\(tempVolume) л."
+            return "\(tempVolume) мл."
         } else if (isHaveWeight) {
             return "\(tempVolume) гр."
         } else if (isCountable) {

@@ -96,6 +96,10 @@ extension ReceiptsListViewController {
             dataSource.append(receiptDescr)
         }
         
+        dataSource.sort { (r1, r2) -> Bool in
+            r1.percentage > r2.percentage
+        }
+        
         self.removeSpinner()
     }
     
