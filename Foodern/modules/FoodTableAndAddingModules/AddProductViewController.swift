@@ -242,8 +242,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate {
                     newProduct.initalVolume = newProduct.tempVolume
                 }
                 self.realm.delete(duplicate)
-                self.realm.add(newProduct)
             }
+            self.realm.add(newProduct)
         }
         
         if let image = self.imageOfProduct {

@@ -73,14 +73,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Foodern/modules/QRCodeAddingModule/QRCodeScannerViewController.swift"
-            timestampString = "577538242.680624"
+            filePath = "Foodern/modules/FoodTableAndAddingModules/AddProductViewController.swift"
+            timestampString = "577656622.794554"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "getRequest(str:)"
-            landmarkType = "7">
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "unknown"
+            landmarkType = "0">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Foodern.AddProductViewController.doneButtonClicked(Any) -&gt; ()"
+                  moduleName = "Foodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vadya/Desktop/Foodern/Foodern/modules/FoodTableAndAddingModules/AddProductViewController.swift"
+                  timestampString = "577655310.331535"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "227"
+                  endingLineNumber = "227"
+                  offsetFromSymbolStart = "6728">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Foodern.AddProductViewController.doneButtonClicked(Any) -&gt; ()"
+                  moduleName = "Foodern"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Vadya/Desktop/Foodern/Foodern/modules/FoodTableAndAddingModules/AddProductViewController.swift"
+                  timestampString = "577655310.334249"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
